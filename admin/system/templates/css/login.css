@@ -1,0 +1,180 @@
+/* CONNEXION */
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+
+    font: 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    color: #fff;
+    text-align: justify;
+}
+
+
+/* PROMPT */
+
+.jqiwarning .jqi
+{
+    background-color: #ffb9bb;
+}
+.jqifade
+{
+    background-color: #ffffff;
+}
+div.jqi
+{
+    position: absolute;
+    background-color: #ff0000;
+    padding: 10px;
+    width: 400px;
+}
+div.jqi .jqiclose
+{
+    float: right;
+    margin: -35px -10px 0 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ff0000;
+}
+div.jqi .jqicontainer
+{
+    background-color: #ffb9bb;
+    padding: 5px;
+    color: #ffffff;
+    font-weight: bold;
+}
+div.jqi .jqimessage
+{
+    background-color: #ff0000;
+    padding: 10px;
+}
+div.jqi .jqimessage p{ margin: 2px 0; }
+div.jqi .jqimessage textarea.errorTxt,
+div.jqi .jqimessage textarea.errorCode
+{
+    width: 366px;
+    height: 28px;
+    overflow-y: auto;
+    padding: 2px;
+
+    border: none;
+    background: #fff;
+
+    line-height: 14px;
+}
+div.jqi .jqibuttons
+{
+    text-align: center;
+    padding: 5px 0 0 0;
+}
+div.jqi button
+{
+    padding: 3px 10px 3px 10px;
+    margin: 0 10px;
+}
+
+
+
+div#center
+{
+    width: 685px;
+}
+div#center div#connexion
+{
+    position: relative;
+
+    width: 561px;
+    height: 112px;
+    margin: 0 auto;
+    padding: 9px 10px;
+
+    background: transparent url( ../imgs/login/sunny_connexion_cadre.png ) no-repeat center;
+}
+div#center div#connexion h1
+{
+    position: absolute;
+    top: 15px;
+    left: 20px;
+
+    margin: 0 0 20px 0;
+    padding: 0;
+
+    font-size: 19px;
+    color: #fff;
+    line-height: 19px;
+}
+
+
+div#center div#connexion table
+{
+    position: absolute;
+    top: 58px;
+    left: 18px;
+
+    margin: 0;
+    padding: 0;
+
+    border-collapse: collapse;
+}
+div#center div#connexion table tbody tr th{ width: 114px; }
+div#center div#connexion table tbody tr td{ width: 293px; }
+div#center div#connexion table tbody tr th.button{ width: auto; }
+
+div#center div#connexion table tbody tr th label
+{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+div#center div#connexion table tbody tr td input#f_connexion_login,
+div#center div#connexion table tbody tr td input#f_connexion_password
+{
+    width: 262px;
+    height: 18px;
+    padding: 1px 10px;
+
+    border: none;
+    background: transparent url( ../imgs/login/connexion_input.png ) no-repeat center;
+
+    color: #404040;
+}
+div#center div#connexion table tbody tr th input#f_connexion_submit
+{
+    width: 134px;
+    height: 46px;
+    cursor: pointer;
+
+    border: none;
+    background: transparent url( ../imgs/login/connexion_button.png ) no-repeat center;
+}
+
+div#center div#alert_unavailable
+{
+    width: 538px;
+    margin: 0 2px 10px 2px;
+    padding: 5px 5px;
+
+    border: 1px solid #ff0000;
+
+    line-height: 14px;
+    color: #ff0000;
+    text-align: center;
+    font-weight: bold;
+}
+div#center div#alert_unavailable p{ margin: 5px 0; }
+
+div#center div#alert_nav
+{
+    width: 538px;
+    margin: 10px 2px 0 2px;
+    padding: 5px 10px;
+
+    border: 1px solid #ff0000;
+
+    line-height: 14px;
+    color: #ff0000;
+    text-align: center;
+}
+div#center div#alert_nav p{ margin: 5px 0; }
+div#center div#alert_nav a{ color: #ff0000; font-weight: bold; text-decoration: underline; }
+div#center div#alert_nav a:hover{ text-decoration: none; }

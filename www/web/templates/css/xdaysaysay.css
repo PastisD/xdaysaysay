@@ -1,0 +1,262 @@
+body {
+	background: #E9E9E9 url(../images/BodyBg.png) repeat-x top left;
+	font-family: Verdana;
+	font-size: 12px;
+	color: #000;
+}
+
+a, a:visited, a:active {
+	text-decoration: none;
+	border: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+#header {
+	background: transparent url(../images/HeaderBg.png) repeat-x top left;
+	height: 29px;
+}
+
+#headerContent {
+	width: 1000px;
+	margin: 0 auto;
+	height: 29px;
+}
+
+#headerContent p {
+	text-align: right;
+	background: transparent url(../images/HeaderClock.png) no-repeat top left;
+	color: #fff;
+ line-height: 25px;
+ text-align: right;
+/* width: 160px;*/
+	float: right;
+ padding-left: 30px;
+}
+
+#main {
+	width: 1000px;
+	background: transparent url(../images/TopLogo.png) no-repeat top left;
+	margin: 20px auto;
+	clear: both;
+	position: relative;
+}
+#main #home {
+	display: block;
+	position: absolute;
+	width: 300px;
+	height: 140px;
+	top: 0;
+	left: 25px;
+}
+
+#topLogo {
+	height: 100px;
+	width: 450px;
+	padding: 60px 0 0 350px;
+	text-align: center;
+}
+#topLogo .topBlue {
+	font-variant: small-caps;
+	color: #3d78a9;
+	font-size: 18px;
+	font-weight: bold;
+}
+#topLogo .link {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#mainTop {
+	margin: 20px 0;
+}
+
+.bloc {
+	background: transparent url(../images/blocBg.png) repeat top left;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #fff;
+}
+
+#search, #dons {
+	float: left;
+	height: 165px;
+	padding: 15px;
+}
+
+#dons > form > input
+{
+ cursor: pointer;
+}
+
+#search {
+	width: 715px;
+}
+#search h1 {
+	font-weight: bold;
+	border-bottom: 1px dotted #000;
+	padding-bottom: 5px;
+}
+#search form {
+	margin: 20px 0;
+}
+input, select {
+	width: 230px;
+	padding-left: 10px;
+	height: 22px;
+	line-height: 22px;
+	border: 1px solid #5795c9; 
+	margin-right: 20px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+#search #searchSubmit {
+	width: 130px;
+	height: 26px;
+	background: transparent url(../images/searchButton.png) no-repeat top left;
+	border: none;
+	color: #fff;
+	padding: 0;
+	cursor: pointer;
+}
+#search #searchInfos {
+	background: transparent url(../images/logoMini.png) no-repeat bottom right;
+	height: 80px;
+}
+#search #searchInfos p {
+	width: 540px;
+}
+
+#dons {
+	margin-left: 20px;
+	width: 195px;
+ text-align: center;
+}
+#dons a {
+	display: block;
+	width: 175px;
+	margin: 30px auto;
+}
+#dons #sendDon {
+	background: transparent url(../images/donsButton.png) no-repeat top left;
+	height: 40px;
+ width: 175px;
+ border: none;
+	line-height: 40px;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+ margin: 0;
+ padding: 0;
+ margin-top: 33px;
+}
+#dons #cards {
+	background: transparent url(../images/cards.png) no-repeat top left;
+	height: 30px;
+}
+
+#menu {
+	float: left;
+	padding: 15px;	
+	width: 250px;
+}
+#menu h2 {
+	border-bottom: 1px dotted #000;
+	padding-bottom: 3px;	
+	margin-bottom: 15px;
+}
+#menu .menuStep {
+	margin: 5px 0; 
+}
+#menu .team {
+	background: transparent url(../images/arrowClose.png) no-repeat top left;
+	padding-left: 15px;
+}
+#menu .team.opened {
+	background: transparent url(../images/arrowOpen.png) no-repeat top left;
+}
+#menu .bot {
+	margin-left: 20px;
+}
+#menu .bot a {
+	height: 21px;
+	line-height: 21px;
+	display: block;
+	padding-left: 3px;
+}
+#menu .bot .selected {
+	background: transparent url(../images/blueBg.png) repeat-x top left;
+	
+}
+
+#content {
+	float: left;
+	width: 693px;
+	margin-left: 20px;
+}
+#content .contentLink {
+	padding: 10px;
+}
+#content .contentLink a {
+	color: #5795c9;
+	font-size: 14px;
+	font-weight: bold;
+}
+#content .botInfo {
+	padding: 10px;
+}
+#content .botInfo p {
+	line-height: 22px;
+}
+#content .botInfo .botName {
+	font-size: 14px;
+	font-weight: bold;
+}
+#content .cmdIrc {
+	padding: 5px 10px;
+}
+#content .cmdIrc form {
+	background: transparent url(../images/copyLogo.png) no-repeat top right;
+	width: 460px;
+}
+#content .cmdIrc form a {
+	font-weight: bold;
+	border-bottom: 1px dotted #000;
+}
+#content .cmdIrc form a:hover {
+	text-decoration: none;
+}
+
+#content .listing {
+	width: 100%;
+	border: 1px solid #fff;
+	margin: 20px 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#content .listing th {
+	height: 37px;
+	padding: 0 5px;
+	background: transparent url(../images/blocBg.png) repeat top left;
+}
+#content .listing td {
+	padding: 0 5px;
+}
+#content .listing tr {
+	height: 25px;
+}
+#content .listing .even {
+	background: transparent url(../images/blueBg.png) repeat top left;
+	height: 25px;
+}
+
+#footer {
+	clear: both;
+	text-align: center;
+	padding-top: 10px;
+}

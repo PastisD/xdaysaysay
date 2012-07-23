@@ -1,0 +1,8 @@
+RewriteEngine on
+
+RewriteBase    /xdaysaysay/www/web/
+
+RewriteRule   ^xdcc/(?:(?:[a-z0-9\-_]+),([0-9]+))/(?:(?:[a-z0-9\-_]+),([0-9]+))/$  index.php?mode=xdcc&id_team=$1&id_xdcc=$2  [QSA,L]
+
+RewriteRule   ^search/(.*)?$ index.php?mode=search&$1  [QSA,L]
+RewriteRule   ^search/(?:(?:[a-z0-9\-_]+),([0-9]+))/(.*)$ index.php?mode=search&id_team=$1&pattern=$2  [QSA,L]

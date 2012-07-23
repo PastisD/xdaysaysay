@@ -1,0 +1,3 @@
+<?php
+ $template->pparse( 'footer' );
+?>

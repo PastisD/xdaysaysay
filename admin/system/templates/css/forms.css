@@ -1,0 +1,491 @@
+/* FORMS */
+
+form.grey,
+form.red
+{
+ margin: 0;
+}
+
+div.grey_668_bottom div.grey_668_top form.grey,
+div.grey_442_bottom div.grey_442_top form.grey,
+div.grey_216_bottom div.grey_216_top form.grey,
+div.grey_668_bottom div.grey_668_top form.red,
+div.grey_442_bottom div.grey_442_top form.red,
+div.grey_216_bottom div.grey_216_top form.red,
+div.red_668_bottom div.red_668_top form.red,
+div.red_442_bottom div.red_442_top form.red,
+div.red_216_bottom div.red_216_top form.red,
+div.red_668_bottom div.red_668_top form.grey,
+div.red_442_bottom div.red_442_top form.grey,
+div.red_216_bottom div.red_216_top form.grey
+{
+ margin: 10px 0;
+}
+
+form.grey h3
+{
+ margin: 10px 0 0 0;
+ color: #ff0000;
+}
+form.red h3
+{
+ margin: 10px 0 0 0;
+ color: #ff0000;
+}
+form.grey h3 em,
+form.red h3 em
+{
+ font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+ font-style: italic;
+ text-decoration: none;
+ line-height: 20px;
+}
+form.grey h3 em{ color: #ff0000; }
+form.red h3 em{ color: #ff0000; }
+form.grey h4
+{
+ margin: 0 0 0 0;
+ color: #ff0000;
+}
+form.red h4
+{
+ margin: 0 0 0 0;
+ color: #ff0000;
+}
+form.grey h5,
+form.red h5
+{
+ margin: 0;
+ color: #ff0000;
+}
+
+form.grey table.form,
+form.red table.form
+{
+ width: 100%;
+ cursor: default;
+ 
+ border: none;
+ border-collapse: collapse;
+ 
+ color: #303030;
+}
+form.grey table.first,
+form.red table.first
+{
+ margin-top: 5px;
+}
+form.grey table.form.user_rights,
+form.red table.form.user_rights
+{
+ width: auto;
+ margin: 0 0 10px 50px;
+}
+form.grey table.form tr th,
+form.grey table.form tr td,
+form.red table.form tr th,
+form.red table.form tr td
+{
+ padding: 2px 3px;
+}
+
+form.grey table.form tbody tr th,
+form.red table.form tbody tr th,
+form.grey table.form tfoot tr th,
+form.red table.form tfoot tr th
+{
+ width: 150px;
+ 
+ text-align: left;
+}
+form.grey table.form tbody tr th em,
+form.red table.form tbody tr th em,
+form.grey table.form tfoot tr th em,
+form.red table.form tfoot tr th em
+{
+ font-weight: normal;
+ font-style: italic;
+ font-size: 10px;
+}
+
+form.grey table tr.sep,
+form.red table tr.sep
+{
+ height: 5px;
+ line-height: 5px;
+}
+
+form.grey table.form tr.submit td{ text-align: right; }
+
+form.grey table.form thead tr{ border: 0 solid #303030; background: #303030; }
+form.grey table.form tbody tr{ border: 0 solid #303030; }
+form.grey table.form tbody tr.l_0{ background: #fff; }
+form.grey table.form tbody tr.l_1{ background: #f0f0f0; }
+form.grey table.form tbody tr.l_0:hover,
+form.grey table.form tbody tr.l_1:hover{ background: #e0e0e0; color: #303030; }
+
+form.red table.form thead tr{ border: 0 solid #ff0000; background: #ff0000; }
+form.red table.form tbody tr{ border: 0 solid #ff0000; }
+form.red table.form tbody tr.l_0{ background: #fff; }
+form.red table.form tbody tr.l_1{ background: #ffebec; }
+form.red table.form tbody tr.l_0:hover,
+form.red table.form tbody tr.l_1:hover{ background: #ffcdce; color: #303030; }
+form.red table.form tbody tr.l_selected,
+form.red table.form tbody tr.l_selected:hover{ background: #ffafb1; }
+
+table tr td.red_border
+{
+ border: 1px solid #ff0000;
+}
+
+
+
+/* INPUTS */
+
+input[type=submit], input[type=reset]
+{
+ /*width: 100px;*/
+}
+
+input[type=text], select, textarea
+{
+ width: 99%;
+}
+
+select.nofull, 
+input[type=text].nofull
+{
+ width: 150px;
+}
+select.nofull_auto, 
+input[type=text].nofull_auto
+{
+ width: auto;
+}
+select.nofull_veryverysmall, 
+input[type=text].nofull_veryverysmall
+{
+ width: 50px;
+}
+select.nofull_verysmall, 
+input[type=text].nofull_verysmall
+{
+ width: 90px;
+}
+select.nofull_small, 
+input[type=text].nofull_small
+{
+ width: 125px;
+}
+select.nofull_medium, 
+input[type=text].nofull_medium
+{
+ width: 170px;
+}
+select.nofull_littlebig, 
+input[type=text].nofull_littlebig
+{
+ width: 250px;
+}
+select.nofull_big, 
+input[type=text].nofull_big
+{
+ width: 300px;
+}
+
+textarea.tinymce
+{
+ height: 400px;
+}
+
+
+
+/* TABLES */
+
+table.full
+{
+ width: 640px;
+ margin: 5px auto;
+ 
+ border-collapse: collapse;
+ 
+ text-align: left;
+}
+table.full tr th,
+table.full tr td{ padding: 1px 2px; }
+table.full.border tr th,
+table.full.border tr td{ border: 1px solid #303030; }
+table.full.diag tr th.type{ width: 160px; }
+table.full.diag tr td.type{ width: 160px; text-align: left; line-height: 11px; }
+
+table.form.multi_checkbox
+{
+ width: 640px;
+ margin: 5px auto;
+}
+table.form.multi_checkbox tbody tr th{ width: 196px; vertical-align: top; }
+table.form.multi_checkbox tbody tr td{ width: 20px; vertical-align: top; }
+
+
+div#listePhotos table.list,
+div#listeVisitesVirtuelles table.list
+{
+ /*border: none;*/
+ margin: 10px 0;
+}
+div#listePhotos table.list tbody tr td,
+div#listeVisitesVirtuelles table.list tbody tr td
+{
+ position: relative;
+ padding: 5px;
+ width: 33%;
+ 
+ text-align: center;
+ vertical-align: middle;
+}
+div#listePhotos table.list tbody tr td a.delete,
+div#listeVisitesVirtuelles table.list tbody tr td a.delete{ position: float; float: right; }
+div#listePhotos table.list tbody tr td table tbody tr td,
+div#listeVisitesVirtuelles table.list tbody tr td table tbody tr td{ padding: 0; }
+
+
+
+/* QUIZ */
+
+form.grey table.form tbody tr td table#quiz
+{
+ width: 100%;
+}
+form.grey table.form tbody tr td table#quiz tbody tr td.good{ width: 20px; }
+form.grey table.form tbody tr td table#quiz tbody tr td.del{ width: 10px; }
+form.grey table.form tbody tr td table#quiz tbody tr td.del a{ text-decoration: none; color: #303030; }
+
+
+
+/* EMPLACEMENTS BANNIERES */
+
+form.grey table.form tbody tr td table#fichiers
+{
+ width: 100%;
+}
+form.grey table.form tbody tr td table#fichiers thead tr td,
+form.grey table.form tbody tr td table#fichiers thead tr th{ width: auto; color: #fff; }
+form.grey table.form tbody tr td table#fichiers tbody tr td.size{ width: 200px; }
+form.grey table.form tbody tr td table#fichiers tbody tr td.size input{ width: 70px; }
+form.grey table.form tbody tr td table#fichiers tbody tr td.show{ width: 10px; }
+form.grey table.form tbody tr td table#fichiers tbody tr td.del{ width: 10px; }
+form.grey table.form tbody tr td table#fichiers tbody tr td.del a{ text-decoration: none; color: #303030; }
+
+
+
+/* CSS */
+
+form.grey table.form tbody tr td table#fichiers_css
+{
+ width: 100%;
+}
+form.grey table.form tbody tr td table#fichiers_css thead tr td,
+form.grey table.form tbody tr td table#fichiers_css thead tr th{ width: auto; color: #fff; }
+form.grey table.form tbody tr td table#fichiers_css tbody tr td.visible{ width: 10px; }
+form.grey table.form tbody tr td table#fichiers_css tbody tr td.actif{ width: 10px; }
+form.grey table.form tbody tr td table#fichiers_css tbody tr td.del{ width: 10px; }
+form.grey table.form tbody tr td table#fichiers_css tbody tr td.del a{ text-decoration: none; color: #303030; }
+
+
+
+/* APERCU IMAGE */
+
+p.apercu_img,
+p.apercu_file
+{
+ margin: 10px 0;
+ text-align: center;
+}
+
+
+/* TAUX */
+
+form.grey table.form tbody tr td table.taux
+{
+ width: 500px;
+ margin: 0 70px;
+}
+form.grey table.form tbody tr td table.taux tr th,
+form.grey table.form tbody tr td table.taux tr td{ width: 100px; }
+form.grey table.form tbody tr td table.taux thead tr th{ text-align: center; }
+form.grey table.form tbody tr td table.taux tr th{ background: #303030; color: #fff; }
+
+
+
+/* LINKS */
+
+a.main
+{
+ display: block;
+ width: 20px;
+ height: 20px;
+ 
+ cursor: pointer;
+ background: transparent url( ../imgs/icons/main.gif ) no-repeat left top;
+ background-position: 0px -20px;
+}
+a.main.active{ background-position: 0px 0px; }
+a.main:hover{ background-position: 0px 0px; }
+
+a.delete
+{
+ display: block;
+ width: 20px;
+ height: 20px;
+ 
+ cursor: pointer;
+ background: transparent url( ../imgs/icons/delete.gif ) no-repeat left top;
+ background-position: 0px 0px;
+ 
+ text-decoration: none;
+}
+a.delete:hover{ background-position: 0px -20px; }
+
+a.add_button
+{
+ display: block;
+ width: 20px;
+ height: 20px;
+ 
+ cursor: pointer;
+ background: transparent url( ../imgs/icons/plus.gif ) no-repeat center;
+ background-position: 0px 0px;
+ 
+ text-decoration: none;
+}
+a.add_button:hover{ background-position: 0px -20px; }
+
+a.add
+{
+ padding-left: 20px;
+ 
+ cursor: pointer;
+ background: transparent url( '/imgs/icons/plus.gif' ) no-repeat left top;
+ background-position: 0px 0px;
+ 
+ font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+ font-style: italic;
+ text-decoration: none;
+ line-height: 20px;
+ color: #ff0000;
+}
+a.add:hover
+{
+ background-position: 0px -20px;
+ text-decoration: underline;
+}
+
+a.search
+{
+ padding-left: 20px;
+ 
+ cursor: pointer;
+ background: transparent url( ../imgs/icons/search.gif ) no-repeat left top;
+ background-position: 0px 0px;
+ 
+ font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+ text-decoration: none;
+ line-height: 20px;
+ color: #ff0000;
+}
+a.search:hover
+{
+ background-position: 0px -20px;
+ text-decoration: underline;
+}
+
+a.go
+{
+ padding-left: 20px;
+	
+ cursor: pointer;
+ background: transparent url( ../imgs/icons/go.gif ) no-repeat left top;
+ background-position: 0px 0px;
+ 
+ font: normal 12px "Trebuchet MS", Arial, Helvetica, sans-serif;
+ text-decoration: none;
+ line-height: 20px;
+ color: #ff0000;
+}
+a.go:hover
+{
+ background-position: 0px -20px;
+ text-decoration: underline;
+}
+a.go.block{ display: block; width: 16px; height: 20px; }
+
+a.find_raprochement,a.show_raprochement
+{
+ display: block;
+ width: 16px;
+ height: 20px;
+ 
+ cursor: pointer;
+ background: transparent url( ../imgs/icons/search.gif ) no-repeat left top;
+ background-position: 0px 0px;
+ 
+ text-decoration: none;
+}
+a.show_raprochement
+{
+ display: block;
+ width: 20px;
+ height: 20px;
+ 
+ cursor: pointer;
+ background: transparent url( ../imgs/icons/linking_search.gif ) no-repeat left top;
+ background-position: 0px 0px;
+ 
+ text-decoration: none;
+}
+a.find_raprochement:hover, a.show_raprochement:hover{ background-position: 0px -20px; }
+
+
+
+a.delete.space,
+a.add.space,
+a.add_button.space,
+a.search.space,
+a.go.space
+{
+ margin: 0 10px;
+}
+
+a.delete.left,
+a.add.left,
+a.add_button.left,
+a.search.left,
+a.go.left
+{
+ float: left;
+}
+a.delete.right,
+a.add.right,
+a.add_button.right,
+a.search.right,
+a.go.right
+{
+ float: right;
+}
+
+
+
+/* INVALID INPUT */
+
+.invalidInput
+{
+ padding: 2px;
+ 
+	border: 1px dotted #f00;
+	background-color: #ffece6;
+}
+.invalidInputLabel
+{
+	border-bottom: 1px dotted #f00;
+	color: #ff0000;
+}

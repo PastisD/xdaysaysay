@@ -40,7 +40,8 @@ class xdcc_find_mod extends module
             LEFT JOIN xdcc_irc_server xis ON ( xis.id_xdcc = x.id )
             LEFT JOIN teams t ON ( t.id = tx.id_team )
             WHERE p.name LIKE ('%" . str_replace( " ", "%", $pattern ) . "%')
-            AND t.chan_name = '" . $line['to'] . "'
+              AND t.chan_name = '" . $line['to'] . "'
+              AND x.show_on_listing = '1'
             ORDER BY t.name, xis.name_xdcc, p.id_pack;";
   
   $teams_search = array( );

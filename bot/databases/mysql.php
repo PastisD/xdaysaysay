@@ -47,7 +47,7 @@ class mysql {
 	public $database;
 	public $host;
 	public $port;
-
+	
 	public function __construct($host, $database, $user, $pass, $prefix, $port = 3306)
 	{
 		$this->user = $user;
@@ -56,24 +56,33 @@ class mysql {
 		$this->database = $database;
 		$this->port = $port;
 
-		$db = mysql_connect($host . ":" . $port, $user, $pass);
+		if( !$this->connect() )
+			return;
+		
+		$this->prefix = $prefix;
+		// $this->dbIndex = $db;
+		$this->isConnected = true;
+	}
+	
+	
+	public function connect()
+	{
+		$db = mysql_connect($this->host . ":" . $this->port, $this->user, $this->pass);
 
 		if (!$db)
 		{
-			return;
+			return false;
 		}
+		$this->dbIndex = $db;
 
-		$dBase = mysql_select_db($database, $db);
+		$dBase = mysql_select_db($this->database, $this->dbIndex);
 
 		if (!$dBase)
 		{
-			return;
+			return false;
 		}
-
-		$this->prefix = $prefix;
-		$this->dbIndex = $db;
-		$this->isConnected = true;
-	}
+		return true;
+ 	}	
 
 	public function getError()
 	{
@@ -93,6 +102,8 @@ class mysql {
 
 	public function query($query, $values = array())
 	{
+		if( !mysql_ping() )
+			$this->connect();
 
 		if (!is_array($values))
 			$values = array($values);

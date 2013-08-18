@@ -35,8 +35,9 @@ include('./xdcc.class.php');
 $con = new mysqli( $hostname, $user, $pass, $database );
 $xdcc_class = new xdcc( $con );
 $servers = array( );
-if ( $result = $con->query( 'SELECT s.`host`,
+if ( $result = $con->query( 'SELECT LOWER( s.`host` ) AS host,
                                     s.`http_port`,
+                                    s.`ssl`,
                                     x.`url`,
                                     x.`id`
                              FROM `xdccs` x
@@ -52,7 +53,7 @@ if ( $result = $con->query( 'SELECT s.`host`,
   {
    $servers[$ligne->host][$ligne->http_port] = array( );
   }
-  $servers[$ligne->host][$ligne->http_port][$ligne->id] = $ligne->url;
+  $servers[$ligne->host][$ligne->http_port][$ligne->id] = array( "ssl" => ($ligne->ssl == "yes"), "url" => $ligne->url );
  }
  $result->close();
  $xdcc_class->update( $servers );

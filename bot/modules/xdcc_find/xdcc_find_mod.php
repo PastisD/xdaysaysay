@@ -35,10 +35,10 @@ class xdcc_find_mod extends module
                    p.size,
                    xis.name_xdcc
             FROM packs p
-            LEFT JOIN xdccs x ON ( x.id = p.id_xdcc )
-            LEFT JOIN team_xdcc tx ON ( tx.id_xdcc = x.id )
-            LEFT JOIN xdcc_irc_server xis ON ( xis.id_xdcc = x.id )
-            LEFT JOIN teams t ON ( t.id = tx.id_team )
+            JOIN xdccs x ON ( x.id = p.id_xdcc )
+            JOIN team_xdcc tx ON ( tx.id_xdcc = x.id )
+            JOIN xdcc_irc_server xis ON ( xis.id_xdcc = x.id )
+            JOIN teams t ON ( t.id = tx.id_team )
             WHERE p.name LIKE ('%" . str_replace( " ", "%", $pattern ) . "%')
               AND t.chan_name = '" . $line['to'] . "'
               AND x.show_on_listing = '1'
@@ -51,12 +51,19 @@ class xdcc_find_mod extends module
    {
     $teams_search[$obj->id_xdcc][$obj->id_pack] = $obj;
    }
-   $chat = new send_result( $teams_search );
-
-   $port = $this->dccClass->addChat( $line['fromNick'], null, null, true, $chat );
-   if( $port === false )
+   if( !empty( $teams_search ) )
    {
-    $this->ircClass->notice( $line['fromNick'], "Error starting chat, please try again.", 1 );
+    $chat = new send_result( $teams_search );
+
+    $port = $this->dccClass->addChat( $line['fromNick'], null, null, true, $chat );
+    if( $port === false )
+    {
+     $this->ircClass->notice( $line['fromNick'], "Error starting chat, please try again.", 1 );
+    }
+   }
+   else
+   {
+    $this->ircClass->notice( $line['fromNick'], "Aucun résultat", 1 );
    }
   }
   else
@@ -98,7 +105,12 @@ class send_result
   {
    $first = reset( $xdcc );
    $count = count( $xdcc );
-   $max = strlen( $count );
+   $id_packs = array();
+   foreach( $xdcc as $pack )
+   {
+    $id_packs[] = strlen( $pack->id_pack );
+   }
+   $max = max( $id_packs );
    $chat->dccSend( RED . $count . " résultats trouvés pour le bot " . $first->name_xdcc );
    foreach( $xdcc as $pack )
    {

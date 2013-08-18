@@ -1,7 +1,7 @@
 <?php
 /*
 +---------------------------------------------------------------------------
-|   PHP-IRC v2.2.1 Service Release
+|   PHP-IRC v2.2.0
 |   ========================================================
 |   by Manick
 |   (c) 2001-2005 by http://phpbots.sf.net/
@@ -47,7 +47,7 @@ class mysql {
 	public $database;
 	public $host;
 	public $port;
-	
+
 	public function __construct($host, $database, $user, $pass, $prefix, $port = 3306)
 	{
 		$this->user = $user;
@@ -55,34 +55,30 @@ class mysql {
 		$this->host = $host;
 		$this->database = $database;
 		$this->port = $port;
-
-		if( !$this->connect() )
-			return;
-		
 		$this->prefix = $prefix;
-		// $this->dbIndex = $db;
+
+		$this->reconnect();
+	}
+
+	public function reconnect()
+	{
+		$db = mysql_connect($this->host . ":" . $this->port, $this->user, $this->pass, true);
+
+		if ($db === false)
+		{
+			return;
+		}
+
+		$dBase = mysql_select_db($this->database, $db);
+
+		if ($dBase === false)
+		{
+			return;
+		}
+
+		$this->dbIndex = $db;
 		$this->isConnected = true;
 	}
-	
-	
-	public function connect()
-	{
-		$db = mysql_connect($this->host . ":" . $this->port, $this->user, $this->pass);
-
-		if (!$db)
-		{
-			return false;
-		}
-		$this->dbIndex = $db;
-
-		$dBase = mysql_select_db($this->database, $this->dbIndex);
-
-		if (!$dBase)
-		{
-			return false;
-		}
-		return true;
- 	}	
 
 	public function getError()
 	{
@@ -93,31 +89,52 @@ class mysql {
 	{
 		return $this->isConnected;
 	}
-	
-	//Call by reference switched to function declaration, 05/13/05
-	private function fixVar($id, &$values)
+
+	private function fixVar($id, $values)
 	{
 		return mysql_real_escape_string($values[intval($id)-1], $this->dbIndex);
 	}
 
 	public function query($query, $values = array())
 	{
-		if( !mysql_ping() )
-			$this->connect();
+		if (!is_resource($this->dbIndex))
+		{
+			echo "DB not index, trying to reconnect...\n";
+			$this->reconnect();
+		}
 
 		if (!is_array($values))
 			$values = array($values);
+		
+		$query = preg_replace('/\[([0-9]+)]/e', "\$this->fixVar(\\1, &\$values)", $query);
 
-		$query = preg_replace('/\[([0-9]+)]/e', "\$this->fixVar(\\1, \$values)", $query);
+		$data = false;
+		$i = 1;
+
+		while ($data === false)
+		{
+			$data = mysql_query($query, $this->dbIndex);
+
+			if ($data === false)
+			{
+				echo $this->getError();
+				echo "Trying to reconnect... is connection dead?\n";
+				$this->reconnect();
+			}
+			else
+			{
+				break;
+			}
+			$i++;
+
+			if ($i == 4)
+			{
+				echo "Could not connected after 3 attempts.. giving up.\n";
+				break;
+			}
+		}
 
 		$this->queries++;
-
-		$data = mysql_query($query, $this->dbIndex);
-
-		if (!$data)
-		{
-			return false;
-		}
 
 		return $data;
 	}
@@ -148,7 +165,7 @@ class mysql {
 	{
   		return mysql_fetch_array($toFetch);
 	}
-
+ 
 	public function fetchObject($toFetch)
 	{
   		return mysql_fetch_object($toFetch);
@@ -182,4 +199,3 @@ class mysql {
 }
 
 ?>
-

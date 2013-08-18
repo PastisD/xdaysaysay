@@ -85,7 +85,7 @@ class xdcc_update_topic_mod extends module
      }
      case "topic":
      {
-      $topic = $this->configDB->getIniVal( $channel, "xdcc" );
+      $topic = $this->configDB->getIniVal( $channel, "topic" );
       $this->ircClass->notice($line['fromNick'], "Topic utilisé : " . $topic );
       break;
      }

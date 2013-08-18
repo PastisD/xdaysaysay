@@ -36,7 +36,7 @@
 */
 
 // Debug Mode
-define('DEBUG', 1);
+define('DEBUG', 0);
 
 // PID file
 define('PID', "bot.pid");

@@ -30,6 +30,7 @@ class xdcc_update_mod extends module
   {
    $servers = array( );
    $query = 'SELECT s.`host`,
+                    s.`ssl`,
                     s.`http_port`,
                     x.`url`,
                     x.`id`
@@ -55,7 +56,7 @@ class xdcc_update_mod extends module
      {
       $servers[$ligne->host][$ligne->http_port] = array( );
      }
-     $servers[$ligne->host][$ligne->http_port][$ligne->id] = $ligne->url;
+     $servers[$ligne->host][$ligne->http_port][$ligne->id] = array( "ssl" => ($ligne->ssl == "yes"), "url" => $ligne->url );;
     }
     if( !empty( $servers ) )
     {
@@ -141,7 +142,7 @@ class xdcc
  private function register_file_http( $host, $port, $url, $id_xdcc )
  {
   $xdcc_file = '';
-  $url = 'http://' . $host . ':' . $port . $url;
+  $url = ( $url["ssl"] ? 'https://' : 'http://' ) . $host . ':' . $port . $url["url"];
   echo $url . " ----- \n";
   if( ($ch = curl_init( $url )) === false )
   {
@@ -154,7 +155,8 @@ class xdcc
    if( ($xdcc_file = curl_exec( $ch )) === false )
    {
     curl_close( $ch );
-    die( 'erreur curl_exec' );
+    echo( 'erreur curl_exec : ' . curl_error( $ch ) );
+    $this->ircClass->notice( $this->line['fromNick'], "Erreur CURL" );
    }
    else
    {
@@ -168,6 +170,7 @@ class xdcc
     }
     catch( Exception $e )
     {
+     $this->ircClass->notice( $this->line['fromNick'], "Erreur de XML" );
      echo $e->getMessage();
     }
    }

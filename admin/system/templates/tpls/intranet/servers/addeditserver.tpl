@@ -18,6 +18,13 @@
        <td><input type="text" name="host" id="form_host" value="{$HOST}" /></td>
       </tr>
       <tr>
+       <th><label for="form_http_port">SSL</label></th>
+       <td>
+        <input type="radio" name="ssl" id="ssl_yes" value="yes"{$SSL_YES} /><label for="ssl_yes">Oui</label>
+	 <input type="radio" name="ssl" id="ssl_no" value="no"{$SSL_NO} /><label for="ssl_no">Non</label>
+       </td>
+      </tr>
+      <tr>
        <th><label for="form_http_port">Port HTTP</label></th>
        <td><input type="text" name="http_port" id="form_http_port" value="{$HTTP_PORT}" /></td>
       </tr>

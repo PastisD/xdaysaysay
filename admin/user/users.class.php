@@ -188,7 +188,7 @@ class users
   switch( $options["order_by"] )
   {
    case 'login':
-    $options["order_by-final"] = "`login`";
+    $options["order_by-final"] = "`username`";
     break;
    case 'id_user':
     $options["order_by-final"] = "`id`";
@@ -230,7 +230,7 @@ class users
      return $this->mysqli->error;
     else
     {
-//     return $this->insert_user_team( $id_user, $teams );
+     return true;
     }
    }
    else
@@ -252,7 +252,7 @@ class users
      return $this->mysqli->error;
     else
     {
-     return $this->insert_user_team( $id_user, $teams );
+     return true;
     }
    }
    else

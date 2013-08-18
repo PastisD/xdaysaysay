@@ -83,24 +83,26 @@ class servers
 
  public function get_server( $id )
  {
-  $query = 'SELECT `id`, `alias`, `host`, `http_port` FROM `servers` WHERE `id` = ?';
+  $query = 'SELECT `id`, `alias`, `host`, `http_port`, `ssl` FROM `servers` WHERE `id` = ?';
   if( $rpq = $this->mysqli->prepare( $query ) )
   {
    $rpq->bind_param( "i", $id );
-   $rpq->bind_result( $id, $alias, $host, $http_port );
+   $rpq->bind_result( $id, $alias, $host, $http_port, $ssl );
    $rpq->execute();
    if( $rpq->fetch() )
    {
     $this->template->assign( 'ALIAS', $alias );
     $this->template->assign( 'HOST', $host );
     $this->template->assign( 'HTTP_PORT', $http_port );
+    $this->template->assign( 'SSL_YES', ( $ssl == "yes" ? " checked=\"checked\"" : "" ) );
+    $this->template->assign( 'SSL_NO', ( $ssl != "yes" ? " checked=\"checked\"" : "" ) );
    }
   }
  }
 
  public function get_list_servers( $options = array( ), &$nbTotal )
  {
-  $query = 'SELECT SQL_CALC_FOUND_ROWS `id`, `alias`, `host`, `http_port`
+  $query = 'SELECT SQL_CALC_FOUND_ROWS `id`, `alias`, `host`, `http_port`, `ssl`
                    FROM servers '
           . ( $options["search-final"] !== NULL ? "WHERE CONCAT( `host`, ' ', `alias` ) LIKE '%" . $options["search-final"] . "%' " : '' )
           . ' ORDER BY ' . (isset( $options['order_by-final'] ) ? $options['order_by-final'] : 'id') . ' ' . (isset( $options['order-final'] ) ? $options['order-final'] : 'DESC')
@@ -116,6 +118,7 @@ class servers
         'alias' => $array->alias,
         'host' => $array->host,
         'http_port' => $array->http_port,
+        'ssl' => $array->ssl,
     );
    }
 
@@ -187,6 +190,9 @@ class servers
    case 'http_port':
     $options["order_by-final"] = "`http_port`";
     break;
+   case 'ssl':
+    $options["order_by-final"] = "`ssl`";
+    break;
    default:
     $options["order_by-final"] = "`id`";
   }
@@ -198,23 +204,30 @@ class servers
    $options["search-final"] = trim( $options["search"] );
  }
 
- public function editServer( $id, $alias, $host, $http_port )
+ public function editServer( $id, $alias, $host, $http_port, $ssl )
  {
   $query = 'UPDATE `servers` SET
                          `alias` = ?,
                          `host` = ?,
-                         `http_port` = ?
+                         `http_port` = ?,
+                         `ssl` = ?
                    WHERE `id`= ?;';
   if( $rpq = $this->mysqli->prepare( $query ) )
   {
-   $rpq->bind_param( 'ssii', $alias, $host, $http_port, $id );
+   $rpq->bind_param( 'ssisi', $alias, $host, $http_port, $ssl, $id );
    if( !$rpq->execute() )
+   {
     return false;
+   }
    else
+   {
     return true;
+   }
   }
   else
+  {
    return false;
+  }
   return true;
  }
 
@@ -234,14 +247,14 @@ class servers
    return false;
  }
 
- public function addServer( $alias, $host, $http_port )
+ public function addServer( $alias, $host, $http_port, $ssl )
  {
   $query = 'INSERT INTO `servers`
-            (`alias`, `host`, `http_port` ) VALUES
-            ( ?, ?, ?);';
+            (`alias`, `host`, `http_port`, `ssl` ) VALUES
+            ( ?, ?, ?, ?);';
   if( $rpq = $this->mysqli->prepare( $query ) )
   {
-   $rpq->bind_param( 'ssi', $alias, $host, $http_port );
+   $rpq->bind_param( 'ssi', $alias, $host, $http_port, $ssl );
    if( !$rpq->execute() )
    {
     return false;

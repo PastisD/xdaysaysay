@@ -67,9 +67,9 @@ if( !empty( $_POST ) && isset( $_POST['action_form'] ) )
    break;
   case 'del':
    $breturn = array( 'status' => false );
-   if( isset( $_POST['id'] ) )
+   if( isset( $_POST['id_xdcc'] ) )
    {
-    $breturn['status'] = $xdccs->delXdcc( $_POST['id'] );
+    $breturn['status'] = $xdccs->delXdcc( $_POST['id_xdcc'] );
     echo json_encode( $breturn );
    }
    else

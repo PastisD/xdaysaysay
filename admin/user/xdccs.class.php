@@ -205,6 +205,12 @@ class xdccs
    case 'nb_pack':
     $options["order_by-final"] = "`nb_pack`";
     break;
+   case 'team':
+    $options["order_by-final"] = "`team_name`";
+    break;
+   case 'xdcc':
+    $options["order_by-final"] = "`name_xdcc`";
+    break;
    default:
     $options["order_by-final"] = "`team_name` ASC, xis.name_xdcc";
   }
@@ -224,7 +230,7 @@ class xdccs
                          WHERE `id`= ?;';
   if( $rpq = $this->mysqli->prepare( $query ) )
   {
-   $rpq->bind_param( 'siii', $url, $id_server, $show_on_listing, $id );
+   $rpq->bind_param( 'sisi', $url, $id_server, $show_on_listing, $id );
    if( $rpq->execute() !== FALSE )
    {
     $query = 'DELETE FROM `team_xdcc` WHERE `id_xdcc` = ?;';
@@ -285,7 +291,7 @@ class xdccs
             ( ?, ?, ?);';
   if( $rpq = $this->mysqli->prepare( $query ) )
   {
-   $rpq->bind_param( 'isi', $id_server, $url, $show_on_listing );
+   $rpq->bind_param( 'iss', $id_server, $url, $show_on_listing );
    if( $rpq->execute() !== FALSE )
    {
     $id = $rpq->insert_id;

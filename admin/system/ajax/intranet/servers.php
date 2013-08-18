@@ -41,9 +41,11 @@ if( !empty( $_POST ) && isset( $_POST['action_form'] ) )
    if( isset( $_POST['id'] )
     && isset( $_POST['alias'] )
     && isset( $_POST['host'] )
-    && isset( $_POST['http_port'] ) )
+    && isset( $_POST['http_port'] )
+    && isset( $_POST['ssl'] ) )
+
    {
-    $breturn['status'] = $servers->editServer( $_POST['id'], $_POST['alias'], $_POST['host'], $_POST['http_port'] );
+    $breturn['status'] = $servers->editServer( $_POST['id'], $_POST['alias'], $_POST['host'], $_POST['http_port'], $_POST['ssl'] );
     echo json_encode( $breturn );
    }
    else
@@ -55,9 +57,10 @@ if( !empty( $_POST ) && isset( $_POST['action_form'] ) )
   case 'add':
    $breturn = array( 'status' => false );
    if( isset( $_POST['host'] )
-    && isset( $_POST['http_port'] ) )
+    && isset( $_POST['http_port'] )
+    && isset( $_POST['ssl'] ) )
    {
-    $breturn['status'] = $servers->addServer( $_POST['alias'], $_POST['host'], $_POST['http_port'] );
+    $breturn['status'] = $servers->addServer( $_POST['alias'], $_POST['host'], $_POST['http_port'], $_POST['ssl'] );
     echo json_encode( $breturn );
    }
    else

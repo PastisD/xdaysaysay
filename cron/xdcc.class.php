@@ -55,7 +55,7 @@ class xdcc
  private function register_file_http( $host, $port, $url, $id_xdcc )
  {
   $xdcc_file = '';
-  $url = 'http://' . $host . ':' . $port . $url;
+  $url = ( $url["ssl"] ? 'https://' : 'http://' ) . $host . ':' . $port . $url["url"];
   echo $url . " ----- \n";
   if ( ($ch = curl_init( $url )) === false )
   {
@@ -69,7 +69,7 @@ class xdcc
    if ( ($xdcc_file = curl_exec( $ch )) === false )
    {
     curl_close( $ch );
-    echo "erreur curl_exec\n";
+    die( 'erreur curl_exec' );
    }
    else
    {
@@ -154,7 +154,7 @@ class xdcc
                      . $this->con->escape_string( $adddate ) . "', '"
                      . $this->con->escape_string( $md5sum ) . "', '"
                      . $this->con->escape_string( $crc32 ) . "') ";
-   $this->prepare_leveinstein( $this->multi_explode( '/[-.\s\_]/', $node->packname ), $id_xdcc );
+   $this->prepare_leveinstein( $this->multi_explode( '/[-.\s\_]/', $node->packname ) );
   }
   if ( $rpq = $this->con->prepare( 'DELETE FROM packs WHERE id_xdcc = ?' ) )
   {
@@ -183,6 +183,7 @@ class xdcc
 
  private function getbaseUrl( $url )
  {
+  $url = strtolower( $url );
   $hostParts = explode( '.', $url );
   $hostParts = array_reverse( $hostParts );
   return $hostParts[1] . '.' . $hostParts[0];
@@ -260,11 +261,11 @@ class xdcc
   }
  }
 
- private function prepare_leveinstein( array $words, $id_xdcc )
+ private function prepare_leveinstein( array $words )
  {
   foreach( $words as $word )
   {
-   $query = "('" . $this->con->escape_string ( $word ) . "', " . $id_xdcc . ")";
+   $query = "('" . $this->con->escape_string ( $word ) . "')";
    if( !in_array($query, self::$leveinstein ) )
     self::$leveinstein[] = $query;
   }
@@ -284,7 +285,7 @@ class xdcc
   
   if( !empty( self::$leveinstein ) )
   {
-   $query =  'INSERT INTO `levenstein` ( name, id_xdcc ) VALUES ' . implode(',',  self::$leveinstein );
+   $query =  'INSERT INTO `levenstein` ( name ) VALUES ' . implode(',',  self::$leveinstein );
    if ( $this->con->query( $query ) === FALSE )
    {
     echo $query . "\n" . $this->con->error;

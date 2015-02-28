@@ -144,8 +144,4 @@ function date_french( $format, $timestamp = null )
  return $return;
 }
 
-class test {
-
-}
-
 ?>

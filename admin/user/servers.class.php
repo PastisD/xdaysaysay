@@ -254,7 +254,7 @@ class servers
             ( ?, ?, ?, ?);';
   if( $rpq = $this->mysqli->prepare( $query ) )
   {
-   $rpq->bind_param( 'ssi', $alias, $host, $http_port, $ssl );
+   $rpq->bind_param( 'ssii', $alias, $host, $http_port, $ssl );
    if( !$rpq->execute() )
    {
     return false;

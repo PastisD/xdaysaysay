@@ -63,19 +63,20 @@ class xdcc
   }
   else
   {
-//   curl_setopt( $ch, CURLOPT_HEADER, 0 );
    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+   if( $url["ssl"] )
+   {
+    curl_setopt( $ch, CURLOPT_SSL_CIPHER_LIST, "ECDHE-ECDSA-AES256-SHA:ECDH-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDH-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDH-ECDSA-AES256-GCM-SHA384:ECDH-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDH-ECDSA-AES128-GCM-SHA256:ECDH-ECDSA-AES128-SHA256" );
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+   }
 
    if ( ($xdcc_file = curl_exec( $ch )) === false )
    {
+    echo( 'erreur curl_exec - ' . curl_error( $ch ) . '\n' );
     curl_close( $ch );
-    die( 'erreur curl_exec' );
    }
    else
    {
-//    echo $xdcc_file;
-//    $encoding = mb_detect_encoding( $xdcc_file ) . " --- ";
-//    $xdcc_file = str_replace("<?xml version=\"1.0\" encoding=\"UTF-8\">", "<?xml version=\"1.0\" encoding=\"ISO-8859-1\">", $xdcc_file);
     try
     {
      $dom = new SimpleXMLElement( $xdcc_file );
@@ -87,11 +88,6 @@ class xdcc
     {
      echo $e->getMessage();
     }
-//    if ( $dom->loadXML( $xdcc_file ) )
-//    {
-//     $this->insert_xdcc_info( $dom, $id_xdcc );
-//     $this->insert_xdcc_packs( $dom, $id_xdcc );
-//    }
    }
   }
   echo "---------------------------------------\n";

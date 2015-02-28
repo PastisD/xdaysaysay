@@ -36,7 +36,7 @@ $query = 'SELECT DISTINCT x.*, xis.name_xdcc, tx.id_team FROM xdccs x
             AND t.show_on_listing = "1"
             AND t.id_ircserver = xis.id_ircserver
           ORDER BY xis.name_xdcc';
-//echo $query;
+
 if ( $result = $mysqli->query( $query ) )
 {
  while ( $obj = $result->fetch_object() )
@@ -60,7 +60,13 @@ $query = 'SELECT `is`.*,
           FROM teams t
           LEFT JOIN irc_servers `is` ON ( t.id_ircserver = is.id )
           WHERE show_on_listing = "1"
+          AND ( SELECT COUNT(*) 
+                FROM team_xdcc tx
+                JOIN xdccs x ON x.id = tx.id_xdcc
+                WHERE tx.id_team = t.id 
+                AND x.show_on_listing = "1" ) > 0
           ORDER BY t.name';
+
 if ( $result = $mysqli->query( $query ) )
 {
  while ( $obj = $result->fetch_object() )

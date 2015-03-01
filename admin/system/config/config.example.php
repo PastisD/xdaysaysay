@@ -4,7 +4,7 @@ $user = 'root';
 $pass = 'root';
 $database = 'xdaysaysay';
 
-define('PATH', 'D:\UwAmp\www\xdaysaysay\admin');
+define('PATH', __DIR__ . "/../..");
 define('URI', 'http://127.0.0.1/xdaysaysay/admin');
 define('NB_ELEMENTS_PER_PAGE', 30 );
 

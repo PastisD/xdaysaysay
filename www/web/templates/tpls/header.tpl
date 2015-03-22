@@ -16,10 +16,7 @@
 		</div>
 		<div id="main">
 			<a href="{URL}" id="home"></a>
-			<div id="topLogo">
-				<p class="topBlue">Vous voulez un xdcc ?</p>
-				<p class="link">Venez nous en demander un sur <a href="irc://irc.otaku-irc.fr/xdaysaysay">#xdaysaysay</a></p>
-			</div>
+			<div id="topLogo"></div>
 			<div id="mainTop" class="clearfix">
 				<div id="search" class="bloc">
 					<h1>Rechercher un fichier</h1>

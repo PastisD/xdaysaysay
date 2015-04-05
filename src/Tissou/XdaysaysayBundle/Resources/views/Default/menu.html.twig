@@ -8,11 +8,11 @@
                             {{ team.name }}
                         </a></h4>
                 </div>
-                <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
+                <div id="collapseListGroup1" class="panel-collapse collapse{{ loop.first ? " in" : "" }}" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
                     <ul class="list-group">
                         {% for xdcc in team.xdccs %}
                             {% if xdcc.visible %}
-                                <li class="list-group-item">{{ render(controller('TissouXdaysaysayBundle:Default:getXdccName', { 'xdcc': xdcc, 'ircServer': team.ircServer })) }}</li>
+                                <li class="list-group-item">{{ render(controller('TissouXdaysaysayBundle:Default:getXdccName', {'team': team, 'xdcc': xdcc})) }}</li>
                             {% endif %}
                         {% endfor %}
                     </ul>

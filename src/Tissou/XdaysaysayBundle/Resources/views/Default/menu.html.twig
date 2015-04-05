@@ -1,0 +1,23 @@
+<div class="panel-group" role="tablist">
+    {% for team in teams %}
+        {% if team.visible %}
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                    <h4 class="panel-title" id="-collapsible-list-group-">
+                        <a class="" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
+                            {{ team.name }}
+                        </a></h4>
+                </div>
+                <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
+                    <ul class="list-group">
+                        {% for xdcc in team.xdccs %}
+                            {% if xdcc.visible %}
+                                <li class="list-group-item">{{ render(controller('TissouXdaysaysayBundle:Default:getXdccName', { 'xdcc': xdcc, 'ircServer': team.ircServer })) }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

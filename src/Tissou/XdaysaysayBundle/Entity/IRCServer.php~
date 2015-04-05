@@ -1,0 +1,57 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Ewan
+ * Date: 14/03/2015
+ * Time: 20:28
+ */
+
+namespace Tissou\XdaysaysayBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="irc_server")
+ */
+class IRCServer {
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer", options={"unsigned"=true})
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	protected $name;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Team", mappedBy="ircServer")
+     */
+    protected $teams;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="XdccName", mappedBy="ircServer")
+     */
+    protected $xdccnames;
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	protected $host;
+
+	/**
+	 * @ORM\Column(type="integer", options={"unsigned"=true})
+	 */
+	protected $port;
+	/**
+	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 */
+	protected $port_ssl;
+	/**
+	 * @ORM\Column(type="string", nullable=true, length=255)
+	 */
+	protected $website;
+}

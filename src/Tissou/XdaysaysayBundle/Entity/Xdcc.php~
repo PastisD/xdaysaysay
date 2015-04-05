@@ -1,0 +1,73 @@
+<?php
+
+namespace Tissou\XdaysaysayBundle\Entity;
+
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="Tissou\XdaysaysayBundle\Entity\XdccRepository");
+ * @ORM\Table(name="xdcc")
+ */
+class Xdcc {
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer", options={"unsigned"=true})
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="Server", inversedBy="xdccs")
+	 * @ORM\JoinColumn(name="id_server", referencedColumnName="id")
+	 */
+	protected $server;
+
+	/**
+	 * @ORM\OneToMany(targetEntity="Pack", mappedBy="xdcc")
+	 */
+	protected $packs;
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	protected $url;
+
+	/**
+	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 */
+	protected $packsum;
+
+	/**
+	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 */
+	protected $diskspace;
+
+	/**
+	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 */
+	protected $transferedtotal;
+
+	/**
+	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 */
+	protected $totaluptime;
+
+	/**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	protected $lastupdate;
+
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	protected $visible = true;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->teams = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+}

@@ -1,0 +1,44 @@
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /fr
+        permanent: true
+
+tissou_xdaysaysay:
+    resource: "@TissouXdaysaysayBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|fr
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /{_locale}/profile
+    requirements:
+        _locale: en|fr
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /{_locale}/register
+    requirements:
+        _locale: en|fr
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /{_locale}/resetting
+    requirements:
+        _locale: en|fr
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /{_locale}/profile
+    requirements:
+        _locale: en|fr

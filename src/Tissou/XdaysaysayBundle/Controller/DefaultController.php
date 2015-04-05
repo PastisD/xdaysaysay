@@ -16,42 +16,50 @@ class DefaultController extends Controller
     private static $xdccNames = [];
     private function initialize()
     {
-        if(empty(self::$teams))
-        {
+        if(empty(self::$teams)) {
             self::$teams = $this->getDoctrine()
                 ->getRepository('TissouXdaysaysayBundle:Team')
                 ->findAll();
         }
-        if(empty(self::$xdccNames))
-        {
+        if(empty(self::$xdccNames)) {
             self::$xdccNames = $this->getDoctrine()
                 ->getRepository('TissouXdaysaysayBundle:XdccName')
                 ->findAll();
         }
     }
 
-    public function setContainer(ContainerInterface $container = NULL) {
+    public function setContainer(ContainerInterface $container = NULL)
+    {
         parent::setContainer($container);
         $this->initialize();
     }
 
-    public function getXdccNameAction($ircServer, $xdcc)
+    public function getXdccNameAction($xdcc, $team)
     {
-        $finalXdccName = new XdccName();
-        foreach(self::$xdccNames as $xdccName)
-        {
-            if($xdccName->getIrcServer() == $ircServer && $xdccName->getXdcc() == $xdcc)
+        $finalXdccName = new XdccName;
+        foreach (self::$xdccNames as $xdccName) {
+            if ($xdccName->getIrcServer() == $team->getIrcServer() && $xdccName->getXdcc() == $xdcc)
                 $finalXdccName = $xdccName;
         }
 
-        return $this->render("TissouXdaysaysayBundle:Default:xdccName.html.twig", array('xdccName' => $finalXdccName));
+        return $this->render("TissouXdaysaysayBundle:Default:xdccName.html.twig", ['xdccName' => $finalXdccName, 'xdcc' => $xdcc, 'team' => $team]);
     }
 
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="tissou_xdaysaysay_homepage")
      * @Template()
      */
     public function indexAction()
+    {
+        return ["teams" => self::$teams];
+    }
+
+
+    /**
+     * @Route("/xdcc/{team_name},{id_team}/{xdcc_name},{id_xdcc}", name="tissou_xdaysaysay_xdcc", requirements={"id_team" = "\d+", "id_xdcc" = "\d+"}, defaults={"foo" = "bar"})
+     * @Template()
+     */
+    public function xdccAction($id_team, $id_xdcc)
     {
         return ["teams" => self::$teams];
     }

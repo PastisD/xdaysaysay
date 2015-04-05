@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Tissou\XdaysaysayBundle\Entity\XdccRepository");
+ * @ORM\Entity;
  * @ORM\Table(name="xdcc")
  */
 class Xdcc {

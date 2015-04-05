@@ -11,7 +11,7 @@ namespace Tissou\XdaysaysayBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Tissou\XdaysaysayBundle\Entity\XdccNameRepository");
+ * @ORM\Entity;
  * @ORM\Table(name="xdcc_name")
  */
 class XdccName {

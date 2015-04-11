@@ -27,8 +27,6 @@
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.*",
         "components/jquery":  "1.11.*",
-        "symfony/console": "2.6.*@dev",
-        "symfony/http-foundation": "2.6.*@dev",
         "zeroem/curl-bundle": "dev-master"
     },
     "require-dev": {

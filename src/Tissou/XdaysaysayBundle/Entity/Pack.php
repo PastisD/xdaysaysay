@@ -34,7 +34,7 @@ class Pack {
 	protected $name;
 
 	/**
-	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 * @ORM\Column(type="string", nullable=true, options={"unsigned"=true})
 	 */
 	protected $size;
 

@@ -34,17 +34,12 @@ class Xdcc {
 	protected $url;
 
 	/**
-	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
-	 */
-	protected $packsum;
-
-	/**
-	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 * @ORM\Column(type="string", nullable=true, options={"unsigned"=true})
 	 */
 	protected $diskspace;
 
 	/**
-	 * @ORM\Column(type="integer", nullable=true, options={"unsigned"=true})
+	 * @ORM\Column(type="string", nullable=true, options={"unsigned"=true})
 	 */
 	protected $transferedtotal;
 

@@ -1,0 +1,54 @@
+{% extends "XdaysaysayAdminBundle:IRCServer:main.html.twig" %}
+
+{% trans_default_domain "admin" %}
+
+{% block page_subtitle %}
+    Liste des serveurs IRC
+{% endblock %}
+
+{% block page_content %}
+    <div class="box">
+        <div class="box-body">
+            <div class="text-right">
+                <a class="btn btn-info" href="{{ path('xdaysaysay_admin_irc_server_new') }}">Nouveau</a>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Serveur</th>
+                        <th>Port</th>
+                        <th>Port SSL</th>
+                        <th>Site web</th>
+                        <th class="no-sort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for irc_server in irc_servers %}
+                    <tr>
+                        <td>{{ irc_server.id }}</td>
+                        <td>{{ irc_server.name }}</td>
+                        <td>{{ irc_server.host }}</td>
+                        <td>{{ irc_server.port }}</td>
+                        <td>{{ irc_server.portSsl }}</td>
+                        <td>
+                            {% if irc_server.portSsl %}
+                                <a href="{{ irc_server.portSsl }}" target="_blank">{{ irc_server.portSsl }}</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ path('xdaysaysay_admin_irc_server_edit', {id: irc_server.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_irc_server_delete_confirm', {id: irc_server.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

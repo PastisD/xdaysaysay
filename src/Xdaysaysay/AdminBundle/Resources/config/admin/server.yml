@@ -1,0 +1,25 @@
+xdaysaysay_admin_server_index:
+    path:     /
+    defaults:
+        _controller: XdaysaysayAdminBundle:Server:index
+        search: ''
+    options:
+        expose: true
+
+xdaysaysay_admin_server_new:
+    path:     /new
+    defaults: { _controller: XdaysaysayAdminBundle:Server:new }
+
+xdaysaysay_admin_server_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "XdaysaysayAdminBundle:Server:edit" }
+
+xdaysaysay_admin_server_delete_confirm:
+    path:     /{id}/delete/confirm
+    defaults: { _controller: "XdaysaysayAdminBundle:Server:deleteConfirm" }
+    methods:  [GET]
+
+xdaysaysay_admin_server_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "XdaysaysayAdminBundle:Server:delete" }
+    methods:  [DELETE]

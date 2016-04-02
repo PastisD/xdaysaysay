@@ -1,0 +1,57 @@
+{% extends "XdaysaysayAdminBundle:Xdcc:main.html.twig" %}
+
+{% trans_default_domain "admin" %}
+
+{% block page_subtitle %}
+    Liste des xdcc
+{% endblock %}
+
+{% block page_content %}
+    <div class="box">
+        <div class="box-body">
+            <div class="text-right">
+                <a class="btn btn-info" href="{{ path('xdaysaysay_admin_xdcc_new') }}">Nouveau</a>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Team</th>
+                        <th>Serveur</th>
+                        <th>Nom</th>
+                        <th>Packs</th>
+                        <th>Visible</th>
+                        <th class="no-sort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for xdcc in xdccs %}
+                    <tr>
+                        <td>{{ xdcc.id }}</td>
+                        <td>{{ xdcc.teams|join('<br />')|raw }}</td>
+                        <td>{{ xdcc.server }}</td>
+                        <td>{{ xdcc.xdccnames|join('<br />')|raw }}</td>
+                        <td>{{ xdcc.packs.count }}</td>
+
+                        <td>
+                            {% if xdcc.visible %}
+                                <span class="badge bg-green">Oui</span>
+                            {% else %}
+                                <span class="badge bg-red">Non</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ path('xdaysaysay_admin_xdcc_edit', {id: xdcc.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_xdcc_delete_confirm', {id: xdcc.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

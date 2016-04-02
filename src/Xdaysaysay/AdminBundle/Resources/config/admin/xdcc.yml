@@ -1,0 +1,25 @@
+xdaysaysay_admin_xdcc_index:
+    path:     /
+    defaults:
+        _controller: XdaysaysayAdminBundle:Xdcc:index
+        search: ''
+    options:
+        expose: true
+
+xdaysaysay_admin_xdcc_new:
+    path:     /new
+    defaults: { _controller: XdaysaysayAdminBundle:Xdcc:new }
+
+xdaysaysay_admin_xdcc_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "XdaysaysayAdminBundle:Xdcc:edit" }
+
+xdaysaysay_admin_xdcc_delete_confirm:
+    path:     /{id}/delete/confirm
+    defaults: { _controller: "XdaysaysayAdminBundle:Xdcc:deleteConfirm" }
+    methods:  [GET]
+
+xdaysaysay_admin_xdcc_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "XdaysaysayAdminBundle:Xdcc:delete" }
+    methods:  [DELETE]

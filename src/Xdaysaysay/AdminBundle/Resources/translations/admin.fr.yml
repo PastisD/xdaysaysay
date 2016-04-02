@@ -1,0 +1,69 @@
+admin:
+    common:
+        action:
+            edit: Modifier
+            delete: Supprimer
+        form:
+            delete: Supprimer
+            update: Mettre à jour
+            create: Créer
+    login:
+        signin: Se connecter
+        resetting: Mot de passe oublié
+        remember_me: Rester connnecté
+        password: Mot de passe
+        email: Email
+    sidebar:
+        online: En ligne
+    navbar:
+        signout: Se déconnecter
+        profile: Profil
+    xdcc:
+        menu_title: Xdcc
+        form:
+            label:
+                server: Serveur
+                url: URL
+                teams: Teams
+                visible: Visible sur le listing
+        flash:
+            edit: Le xdcc a bien été modifié
+            create: Le xdcc a bien été créé
+            delete: Le xdcc a bien été supprimé
+    irc_server:
+        menu_title: Serveur IRC
+        form:
+            label:
+                name: Nom
+                host: Serveur
+                port: Port
+                port_ssl: Port SSL
+                website: Site web
+        flash:
+            edit: Le serveur IRC a bien été modifié
+            create: Le serveur IRC a bien été créé
+            delete: Le serveur IRC a bien été supprimé
+    server:
+        menu_title: Serveur
+        form:
+            label:
+                name: Nom
+                host: Hôte
+                ssl: SSL
+                http_port: Port HTTP
+        flash:
+            edit: Le serveur a bien été modifié
+            create: Le serveur a bien été créé
+            delete: Le serveur a bien été supprimé
+    team:
+        menu_title: Team
+        form:
+            label:
+                name: Nom
+                ircServer: Serveur IRC
+                chan_name: Chan-IRC (avec le \#)
+        flash:
+            edit: La team a bien été modifiée
+            create: La team a bien été créée
+            delete: La team a bien été supprimée
+

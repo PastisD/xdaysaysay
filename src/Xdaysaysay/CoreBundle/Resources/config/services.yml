@@ -1,0 +1,4 @@
+services:
+#    xdaysaysay_core.example:
+#        class: Xdaysaysay\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

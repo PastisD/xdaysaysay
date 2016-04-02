@@ -1,0 +1,43 @@
+parameters:
+    xdaysaysay_admin.sidebar_navigation_listener.class: Xdaysaysay\AdminBundle\EventListener\SidebarNavigationListener
+    xdaysaysay_admin.sidebar_user_listener.class: Xdaysaysay\AdminBundle\EventListener\SidebarUserListener
+    xdaysaysay_admin.navebar_user_listener.class: Xdaysaysay\AdminBundle\EventListener\NavbarUserListener
+    xdaysaysay_admin.breadcrumb_listener.class: Xdaysaysay\AdminBundle\EventListener\SidebarNavigationListener
+
+services:
+    xdaysaysay_admin.sidebar_navigation_listener:
+        class: "%xdaysaysay_admin.sidebar_navigation_listener.class%"
+        arguments:
+            - "@translator"
+        tags:
+            - { name: kernel.event_listener, event:theme.sidebar_setup_menu, method:onSetupMenu }
+
+    xdaysaysay_admin.sidebar_user_listener:
+        class: "%xdaysaysay_admin.sidebar_user_listener.class%"
+        arguments:
+            - "@translator"
+            - "@security.token_storage"
+        tags:
+            - { name: kernel.event_listener, event:theme.sidebar_user, method:onShowUser }
+
+    xdaysaysay_admin.navebar_user_listener:
+        class: "%xdaysaysay_admin.navebar_user_listener.class%"
+        arguments:
+            - "@translator"
+            - "@security.token_storage"
+        tags:
+            - { name: kernel.event_listener, event:theme.navbar_user, method:onShowUser }
+
+    xdaysaysay_admin.breadcrumb_listener:
+        class: "%xdaysaysay_admin.breadcrumb_listener.class%"
+        arguments:
+            - "@translator"
+            - "@security.token_storage"
+        tags:
+            - { name: kernel.event_listener, event:theme.breadcrumb, method:onSetupMenu }
+
+    # Forms
+    xdaysaysay_admin.form.type.xdcc_type:
+        class: Xdaysaysay\AdminBundle\Form\Type\XdccType
+        tags:
+            - { name: form.type }

@@ -1,0 +1,52 @@
+{% extends "XdaysaysayAdminBundle:IRCServer:main.html.twig" %}
+
+{% trans_default_domain "admin" %}
+
+{% block page_subtitle %}
+    Liste des serveurs IRC
+{% endblock %}
+
+{% block page_content %}
+    <div class="box">
+        <div class="box-body">
+            <div class="text-right">
+                <a class="btn btn-info" href="{{ path('xdaysaysay_admin_server_new') }}">Nouveau</a>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Serveur</th>
+                        <th>SSL</th>
+                        <th class="no-sort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for server in servers %}
+                    <tr>
+                        <td>{{ server.id }}</td>
+                        <td>{{ server.name }}</td>
+                        <td>{{ server.host }}</td>
+                        <td>
+                            {% if server.ssl %}
+                                <span class="badge bg-green">Oui</span>
+                            {% else %}
+                                <span class="badge bg-red">Non</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ path('xdaysaysay_admin_server_edit', {id: server.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_server_delete_confirm', {id: server.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

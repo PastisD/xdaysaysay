@@ -1,0 +1,33 @@
+{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% for script in admin_theme.scripts %}
+        <script type="application/javascript" src="{{ asset(script) }}" />
+    {% endfor %}
+    {% javascripts output='js/complied/select2.js'
+        'bundles/avanzuadmintheme/vendor/adminlte/plugins/select2/select2.full.min.js'
+        'bundles/avanzuadmintheme/vendor/adminlte/plugins/select2/i18n/fr.js'
+    %}
+    <script type="application/javascript" src="{{ asset_url }}" charset="utf-8"></script>
+    {% endjavascripts %}
+    {% javascripts output='js/complied/admin.js'
+        '@XdaysaysayCoreBundle/Resources/js/admin.js'
+    %}
+    <script type="application/javascript" src="{{ asset_url }}" charset="utf-8"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+
+{% block stylesheets %}
+    {% stylesheets filter='cssrewrite' output='css/complied/select2.css'
+    'bundles/avanzuadmintheme/vendor/adminlte/plugins/select2/select2.min.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title %}
+    Xdaysaysay
+{% endblock %}

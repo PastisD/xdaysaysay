@@ -1,0 +1,28 @@
+{% trans_default_domain "admin" %}
+<!-- User Account: style can be found in dropdown.less -->
+{% import "AvanzuAdminThemeBundle:layout:macros.html.twig" as macro %}
+<li class="dropdown user user-menu">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        {{ macro.avatar(user.avatar, user.username, 'user-image') }}
+        <span class="hidden-xs">{{ user.username }}</span>
+    </a>
+    <ul class="dropdown-menu">
+        <!-- User image -->
+        <li class="user-header">
+            {{ macro.avatar(user.avatar, user.username) }}
+            <p>
+                {{user.username}}
+                <small>{{ 'Member since %date%'|trans({'%date%': user.memberSince|date('m.Y') }, 'AvanzuAdminTheme') }}</small>
+            </p>
+        </li>
+        <!-- Menu Footer-->
+        <li class="user-footer">
+            <div class="pull-left">
+                <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-default btn-flat">{{'admin.navbar.profile'|trans}}</a>
+            </div>
+            <div class="pull-right">
+                <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-flat">{{ 'admin.navbar.signout'|trans }}</a>
+            </div>
+        </li>
+    </ul>
+</li>

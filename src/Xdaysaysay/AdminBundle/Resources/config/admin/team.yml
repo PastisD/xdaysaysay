@@ -1,0 +1,25 @@
+xdaysaysay_admin_team_index:
+    path:     /
+    defaults:
+        _controller: XdaysaysayAdminBundle:Team:index
+        search: ''
+    options:
+        expose: true
+
+xdaysaysay_admin_team_new:
+    path:     /new
+    defaults: { _controller: XdaysaysayAdminBundle:Team:new }
+
+xdaysaysay_admin_team_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "XdaysaysayAdminBundle:Team:edit" }
+
+xdaysaysay_admin_team_delete_confirm:
+    path:     /{id}/delete/confirm
+    defaults: { _controller: "XdaysaysayAdminBundle:Team:deleteConfirm" }
+    methods:  [GET]
+
+xdaysaysay_admin_team_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "XdaysaysayAdminBundle:Team:delete" }
+    methods:  [DELETE]

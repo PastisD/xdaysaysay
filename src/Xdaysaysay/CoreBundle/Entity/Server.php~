@@ -1,0 +1,317 @@
+<?php
+
+namespace Xdaysaysay\CoreBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="server")
+ */
+class Server
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer", options={"unsigned"=true})
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\Xdcc", mappedBy="server")
+     */
+    protected $xdccs;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $host;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $http_port;
+
+    /**
+     * @ORM\Column(name="`ssl`", type="boolean")
+     */
+    protected $ssl = false;
+
+    /**
+     * @var \DateTime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created;
+
+    /**
+     * @var \DateTime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
+     * @var string $createdBy
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=true)
+     */
+    private $createdBy;
+
+    /**
+     * @var string $updatedBy
+     *
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=true)
+     */
+    private $updatedBy;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->xdccs = new ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Server
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set host
+     *
+     * @param string $host
+     * @return Server
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+
+        return $this;
+    }
+
+    /**
+     * Get host
+     *
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * Set http_port
+     *
+     * @param integer $httpPort
+     * @return Server
+     */
+    public function setHttpPort($httpPort)
+    {
+        $this->http_port = $httpPort;
+
+        return $this;
+    }
+
+    /**
+     * Get http_port
+     *
+     * @return integer
+     */
+    public function getHttpPort()
+    {
+        return $this->http_port;
+    }
+
+    /**
+     * Set ssl
+     *
+     * @param boolean $ssl
+     * @return Server
+     */
+    public function setSsl($ssl)
+    {
+        $this->ssl = $ssl;
+
+        return $this;
+    }
+
+    /**
+     * Get ssl
+     *
+     * @return boolean
+     */
+    public function getSsl()
+    {
+        return $this->ssl;
+    }
+
+    /**
+     * Add xdccs
+     *
+     * @param Xdcc $xdccs
+     * @return Server
+     */
+    public function addXdcc(Xdcc $xdccs)
+    {
+        $this->xdccs[] = $xdccs;
+
+        return $this;
+    }
+
+    /**
+     * Remove xdccs
+     *
+     * @param Xdcc $xdccs
+     */
+    public function removeXdcc(Xdcc $xdccs)
+    {
+        $this->xdccs->removeElement($xdccs);
+    }
+
+    /**
+     * Get xdccs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getXdccs()
+    {
+        return $this->xdccs;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Server
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Server
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param string $createdBy
+     *
+     * @return Server
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return string
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param string $updatedBy
+     *
+     * @return Server
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return string
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+}

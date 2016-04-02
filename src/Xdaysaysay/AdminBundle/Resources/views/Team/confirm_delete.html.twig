@@ -1,0 +1,22 @@
+{% extends "::admin.html.twig" %}
+
+{% block page_title %}
+    Supression de team
+{% endblock %}
+
+{% block page_content %}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Confirmation de suppression</h3>
+    </div>
+    <div class="box-body">
+        <p>Êtes-vous sur de vouloir supprimer cette team ?</p>
+        <div class="form-group">
+            {{ form_start(form) }}
+            <a href="{{ path('xdaysaysay_admin_team_edit', {id: entity.id}) }}" class="btn btn-primary">Annuler</a>
+            {{ form_widget(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

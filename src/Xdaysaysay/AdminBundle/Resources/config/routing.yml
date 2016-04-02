@@ -1,0 +1,19 @@
+xdaysaysay_admin_homepage:
+    path:     /
+    defaults: { _controller: XdaysaysayAdminBundle:Default:index }
+
+xdaysaysay_admin_xdcc:
+    resource: "@XdaysaysayAdminBundle/Resources/config/admin/xdcc.yml"
+    prefix:   /xdcc
+
+xdaysaysay_admin_irc_server:
+    resource: "@XdaysaysayAdminBundle/Resources/config/admin/irc_server.yml"
+    prefix:   /irc_server
+
+xdaysaysay_admin_server:
+    resource: "@XdaysaysayAdminBundle/Resources/config/admin/server.yml"
+    prefix:   /server
+
+xdaysaysay_admin_team:
+    resource: "@XdaysaysayAdminBundle/Resources/config/admin/team.yml"
+    prefix:   /team

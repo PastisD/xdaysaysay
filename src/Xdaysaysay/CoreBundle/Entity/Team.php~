@@ -1,0 +1,350 @@
+<?php
+
+namespace Xdaysaysay\CoreBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="team")
+ */
+class Team
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer", options={"unsigned"=true})
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Xdaysaysay\CoreBundle\Entity\IRCServer", inversedBy="teams")
+     * @ORM\JoinColumn(name="id_ircserver", referencedColumnName="id")
+     **/
+    protected $ircServer;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\Xdcc", inversedBy="teams")
+     * @ORM\JoinTable(name="team_xdcc",
+     *      joinColumns={@ORM\JoinColumn(name="id_team", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_xdcc", referencedColumnName="id")}
+     *      )
+     **/
+    protected $xdccs;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $chan_name;
+
+    /**
+     * @ORM\Column(type="string", nullable=true, length=255)
+     */
+    protected $website;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $visible = true;
+
+    /**
+     * @var \DateTime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created;
+
+    /**
+     * @var \DateTime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updated;
+
+    /**
+     * @var string $createdBy
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=true)
+     */
+    private $createdBy;
+
+    /**
+     * @var string $updatedBy
+     *
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(type="integer", options={"unsigned"=true}, nullable=true)
+     */
+    private $updatedBy;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->xdccs = new ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Team
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set chan_name
+     *
+     * @param string $chanName
+     * @return Team
+     */
+    public function setChanName($chanName)
+    {
+        $this->chan_name = $chanName;
+
+        return $this;
+    }
+
+    /**
+     * Get chan_name
+     *
+     * @return string
+     */
+    public function getChanName()
+    {
+        return $this->chan_name;
+    }
+
+    /**
+     * Set website
+     *
+     * @param string $website
+     * @return Team
+     */
+    public function setWebsite($website)
+    {
+        $this->website = $website;
+
+        return $this;
+    }
+
+    /**
+     * Get website
+     *
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * Set visible
+     *
+     * @param boolean $visible
+     * @return Team
+     */
+    public function setVisible($visible)
+    {
+        $this->visible = $visible;
+
+        return $this;
+    }
+
+    /**
+     * Get visible
+     *
+     * @return boolean
+     */
+    public function getVisible()
+    {
+        return $this->visible;
+    }
+
+    /**
+     * Set ircServer
+     *
+     * @param \Xdaysaysay\CoreBundle\Entity\IRCServer $ircServer
+     * @return Team
+     */
+    public function setIrcServer(\Xdaysaysay\CoreBundle\Entity\IRCServer $ircServer)
+    {
+        $this->ircServer = $ircServer;
+
+        return $this;
+    }
+
+    /**
+     * Get ircServer
+     *
+     * @return \Xdaysaysay\CoreBundle\Entity\IRCServer
+     */
+    public function getIrcServer()
+    {
+        return $this->ircServer;
+    }
+
+    /**
+     * Add xdccs
+     *
+     * @param \Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs
+     * @return Team
+     */
+    public function addXdcc(\Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs)
+    {
+        $this->xdccs[] = $xdccs;
+
+        return $this;
+    }
+
+    /**
+     * Remove xdccs
+     *
+     * @param \Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs
+     */
+    public function removeXdcc(\Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs)
+    {
+        $this->xdccs->removeElement($xdccs);
+    }
+
+    /**
+     * Get xdccs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getXdccs()
+    {
+        return $this->xdccs;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Team
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Team
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param string $createdBy
+     *
+     * @return Team
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return string
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set updatedBy
+     *
+     * @param string $updatedBy
+     *
+     * @return Team
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedBy
+     *
+     * @return string
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+}

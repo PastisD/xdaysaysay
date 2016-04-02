@@ -19,3 +19,5 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     locale: fr
+
+    bower_bin: bower

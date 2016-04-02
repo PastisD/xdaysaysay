@@ -74,7 +74,7 @@ fos_user:
     user_class: Xdaysaysay\UserBundle\Entity\User
 
 avanzu_admin_theme:
-    bower_bin: C:\Users\Ewan\AppData\Roaming\npm\bower
+    bower_bin: "%bower_bin%"
 
 stof_doctrine_extensions:
     orm:

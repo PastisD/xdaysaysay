@@ -86,6 +86,8 @@ class Xdcc
     public function __construct()
     {
         $this->teams = new ArrayCollection();
+        $this->xdccnames = new ArrayCollection();
+        $this->packs = new ArrayCollection();
     }
 
     /**
@@ -119,29 +121,6 @@ class Xdcc
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * Set packsum
-     *
-     * @param integer $packsum
-     * @return Xdcc
-     */
-    public function setPacksum($packsum)
-    {
-        $this->packsum = $packsum;
-
-        return $this;
-    }
-
-    /**
-     * Get packsum
-     *
-     * @return integer
-     */
-    public function getPacksum()
-    {
-        return $this->packsum;
     }
 
     /**
@@ -308,7 +287,7 @@ class Xdcc
     /**
      * Get packs
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Pack[]
      */
     public function getPacks()
     {
@@ -318,11 +297,11 @@ class Xdcc
     /**
      * Add team
      *
-     * @param \Xdaysaysay\CoreBundle\Entity\Team $team
+     * @param Team $team
      *
      * @return Xdcc
      */
-    public function addTeam(\Xdaysaysay\CoreBundle\Entity\Team $team)
+    public function addTeam(Team $team)
     {
         $this->teams[] = $team;
 
@@ -332,9 +311,9 @@ class Xdcc
     /**
      * Remove team
      *
-     * @param \Xdaysaysay\CoreBundle\Entity\Team $team
+     * @param Team $team
      */
-    public function removeTeam(\Xdaysaysay\CoreBundle\Entity\Team $team)
+    public function removeTeam(Team $team)
     {
         $this->teams->removeElement($team);
     }
@@ -342,7 +321,7 @@ class Xdcc
     /**
      * Get teams
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Team[]
      */
     public function getTeams()
     {
@@ -352,11 +331,11 @@ class Xdcc
     /**
      * Add xdccname
      *
-     * @param \Xdaysaysay\CoreBundle\Entity\XdccName $xdccname
+     * @param XdccName $xdccname
      *
      * @return Xdcc
      */
-    public function addXdccname(\Xdaysaysay\CoreBundle\Entity\XdccName $xdccname)
+    public function addXdccname(XdccName $xdccname)
     {
         $this->xdccnames[] = $xdccname;
 
@@ -366,9 +345,9 @@ class Xdcc
     /**
      * Remove xdccname
      *
-     * @param \Xdaysaysay\CoreBundle\Entity\XdccName $xdccname
+     * @param XdccName $xdccname
      */
-    public function removeXdccname(\Xdaysaysay\CoreBundle\Entity\XdccName $xdccname)
+    public function removeXdccname(XdccName $xdccname)
     {
         $this->xdccnames->removeElement($xdccname);
     }
@@ -376,7 +355,7 @@ class Xdcc
     /**
      * Get xdccnames
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return XdccName[]
      */
     public function getXdccnames()
     {

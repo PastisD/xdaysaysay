@@ -33,9 +33,9 @@ class TeamType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Xdaysaysay\CoreBundle\Entity\Team',
+        $resolver->setDefaults([
+            'data_class'         => 'Xdaysaysay\CoreBundle\Entity\Team',
             'translation_domain' => 'admin',
-        ));
+        ]);
     }
 }

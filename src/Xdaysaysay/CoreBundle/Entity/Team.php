@@ -173,10 +173,10 @@ class Team
     /**
      * Set ircServer
      *
-     * @param \Xdaysaysay\CoreBundle\Entity\IRCServer $ircServer
+     * @param IRCServer $ircServer
      * @return Team
      */
-    public function setIrcServer(\Xdaysaysay\CoreBundle\Entity\IRCServer $ircServer)
+    public function setIrcServer(IRCServer $ircServer)
     {
         $this->ircServer = $ircServer;
 
@@ -186,7 +186,7 @@ class Team
     /**
      * Get ircServer
      *
-     * @return \Xdaysaysay\CoreBundle\Entity\IRCServer
+     * @return IRCServer
      */
     public function getIrcServer()
     {
@@ -196,10 +196,10 @@ class Team
     /**
      * Add xdccs
      *
-     * @param \Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs
+     * @param Xdcc $xdccs
      * @return Team
      */
-    public function addXdcc(\Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs)
+    public function addXdcc(Xdcc $xdccs)
     {
         $this->xdccs[] = $xdccs;
 
@@ -209,9 +209,9 @@ class Team
     /**
      * Remove xdccs
      *
-     * @param \Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs
+     * @param Xdcc $xdccs
      */
-    public function removeXdcc(\Xdaysaysay\CoreBundle\Entity\Xdcc $xdccs)
+    public function removeXdcc(Xdcc $xdccs)
     {
         $this->xdccs->removeElement($xdccs);
     }
@@ -219,7 +219,7 @@ class Team
     /**
      * Get xdccs
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Xdcc[]
      */
     public function getXdccs()
     {

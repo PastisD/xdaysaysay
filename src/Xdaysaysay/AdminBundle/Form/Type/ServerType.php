@@ -36,9 +36,9 @@ class ServerType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Xdaysaysay\CoreBundle\Entity\Server',
+        $resolver->setDefaults([
+            'data_class'         => 'Xdaysaysay\CoreBundle\Entity\Server',
             'translation_domain' => 'admin',
-        ));
+        ]);
     }
 }

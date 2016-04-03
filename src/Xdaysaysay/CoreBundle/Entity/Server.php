@@ -190,7 +190,7 @@ class Server
     /**
      * Get xdccs
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Xdcc[]
      */
     public function getXdccs()
     {

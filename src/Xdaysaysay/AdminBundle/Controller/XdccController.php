@@ -13,14 +13,12 @@ class XdccController extends Controller
     /**
      * Displays list of existing Xdcc entities.
      *
-     * @param Request $request
-     *
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \LogicException
      * @throws \UnexpectedValueException
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $this->get('avanzu_admin_theme.theme_manager')->registerScript('datatble', 'bundles/xdaysaysayadmin/js/datatable.js');
 
@@ -163,12 +161,11 @@ class XdccController extends Controller
     }
 
     /**
-     * @param Request $request
      * @param $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function deleteConfirmAction(Request $request, $id)
+    public function deleteConfirmAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -209,7 +206,7 @@ class XdccController extends Controller
         $form = $this->createDeleteForm($entity);
 
         $form->handleRequest($request);
-        if($form->isValid()) {
+        if ($form->isValid()) {
             $em->remove($entity);
             $em->flush();
 
@@ -235,9 +232,9 @@ class XdccController extends Controller
             ->setMethod('DELETE')
             ->add('submit', SubmitType::class, [
                 'label' => $this->get('translator')->trans('admin.common.action.delete', [], 'admin'),
-                'attr' => [
-                    'class' => 'btn btn-danger'
-                ]
+                'attr'  => [
+                    'class' => 'btn btn-danger',
+                ],
             ])
             ->getForm();
 

@@ -39,9 +39,9 @@ class IRCServerType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Xdaysaysay\CoreBundle\Entity\IRCServer',
+        $resolver->setDefaults([
+            'data_class'         => 'Xdaysaysay\CoreBundle\Entity\IRCServer',
             'translation_domain' => 'admin',
-        ));
+        ]);
     }
 }

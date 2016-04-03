@@ -1,14 +1,14 @@
 xdaysaysay_admin_irc_server_index:
     path:     /
     defaults:
-        _controller: XdaysaysayAdminBundle:IRCServer:index
+        _controller: "XdaysaysayAdminBundle:IRCServer:index"
         search: ''
     options:
         expose: true
 
 xdaysaysay_admin_irc_server_new:
     path:     /new
-    defaults: { _controller: XdaysaysayAdminBundle:IRCServer:new }
+    defaults: { _controller: "XdaysaysayAdminBundle:IRCServer:new" }
 
 xdaysaysay_admin_irc_server_edit:
     path:     /{id}/edit

@@ -1,14 +1,14 @@
 xdaysaysay_admin_xdcc_index:
     path:     /
     defaults:
-        _controller: XdaysaysayAdminBundle:Xdcc:index
+        _controller: "XdaysaysayAdminBundle:Xdcc:index"
         search: ''
     options:
         expose: true
 
 xdaysaysay_admin_xdcc_new:
     path:     /new
-    defaults: { _controller: XdaysaysayAdminBundle:Xdcc:new }
+    defaults: { _controller: "XdaysaysayAdminBundle:Xdcc:new" }
 
 xdaysaysay_admin_xdcc_edit:
     path:     /{id}/edit

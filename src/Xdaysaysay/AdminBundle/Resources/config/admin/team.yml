@@ -1,14 +1,14 @@
 xdaysaysay_admin_team_index:
     path:     /
     defaults:
-        _controller: XdaysaysayAdminBundle:Team:index
+        _controller: "XdaysaysayAdminBundle:Team:index"
         search: ''
     options:
         expose: true
 
 xdaysaysay_admin_team_new:
     path:     /new
-    defaults: { _controller: XdaysaysayAdminBundle:Team:new }
+    defaults: { _controller: "XdaysaysayAdminBundle:Team:new" }
 
 xdaysaysay_admin_team_edit:
     path:     /{id}/edit

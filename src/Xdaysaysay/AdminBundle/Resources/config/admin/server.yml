@@ -1,14 +1,14 @@
 xdaysaysay_admin_server_index:
     path:     /
     defaults:
-        _controller: XdaysaysayAdminBundle:Server:index
+        _controller: "XdaysaysayAdminBundle:Server:index"
         search: ''
     options:
         expose: true
 
 xdaysaysay_admin_server_new:
     path:     /new
-    defaults: { _controller: XdaysaysayAdminBundle:Server:new }
+    defaults: { _controller: "XdaysaysayAdminBundle:Server:new" }
 
 xdaysaysay_admin_server_edit:
     path:     /{id}/edit

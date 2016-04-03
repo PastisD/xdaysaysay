@@ -78,4 +78,6 @@ admin:
             edit: L'utilisateur a bien été modifié
             create: L'utilisateur a bien été créé
             delete: L'utilisateur a bien été supprimé
+            username_already_exists: Ce nom d'utilisateur existe déjà
+            email_already_exists: Cet email existe déjà
 

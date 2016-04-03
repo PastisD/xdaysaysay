@@ -5,6 +5,7 @@ namespace Xdaysaysay\AdminBundle\Controller;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Xdaysaysay\AdminBundle\Form\Type\UserType;
 use Xdaysaysay\UserBundle\Entity\User;
@@ -103,6 +104,22 @@ class UserController extends Controller
         $form = $this->createNewEditForm($entity, true);
 
         $form->handleRequest($request);
+
+        $user = $this->getDoctrine()->getRepository('XdaysaysayUserBundle:User')->findOneBy([
+            'username' => $form->get('username')->getData(),
+        ]);
+
+        if ($user) {
+            $form->get('username')->addError(new FormError($this->get('translator')->trans('admin.user.flash.username_already_exists', [], 'admin')));
+        }
+
+        $user = $this->getDoctrine()->getRepository('XdaysaysayUserBundle:User')->findOneBy([
+            'email' => $form->get('email')->getData(),
+        ]);
+
+        if ($user) {
+            $form->get('email')->addError(new FormError($this->get('translator')->trans('admin.user.flash.email_already_exists', [], 'admin')));
+        }
 
         if ($form->isValid()) {
             $entity->setPlainPassword($form->get('password')->getData());

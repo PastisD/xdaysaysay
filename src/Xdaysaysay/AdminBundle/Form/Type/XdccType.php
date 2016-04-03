@@ -6,12 +6,17 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Exception\AccessException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class XdccType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
+     *
+     * @throws \Symfony\Component\Validator\Exception\ConstraintDefinitionException
+     * @throws \Symfony\Component\Validator\Exception\InvalidOptionsException
+     * @throws \Symfony\Component\Validator\Exception\MissingOptionsException
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -19,7 +24,10 @@ class XdccType extends AbstractType
             'label' => 'admin.xdcc.form.label.server',
         ]);
         $builder->add('url', null, [
-            'label' => 'admin.xdcc.form.label.url',
+            'label'       => 'admin.xdcc.form.label.url',
+            'constraints' => [
+                new Assert\NotBlank(),
+            ],
         ]);
         $builder->add('teams', null, [
             'label' => 'admin.xdcc.form.label.teams',

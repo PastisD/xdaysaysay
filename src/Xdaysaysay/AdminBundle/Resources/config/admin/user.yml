@@ -1,0 +1,25 @@
+xdaysaysay_admin_user_index:
+    path:     /
+    defaults:
+        _controller: "XdaysaysayAdminBundle:User:index"
+        search: ''
+    options:
+        expose: true
+
+xdaysaysay_admin_user_new:
+    path:     /new
+    defaults: { _controller: "XdaysaysayAdminBundle:User:new" }
+
+xdaysaysay_admin_user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "XdaysaysayAdminBundle:User:edit" }
+
+xdaysaysay_admin_user_delete_confirm:
+    path:     /{id}/delete/confirm
+    defaults: { _controller: "XdaysaysayAdminBundle:User:deleteConfirm" }
+    methods:  [GET]
+
+xdaysaysay_admin_user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "XdaysaysayAdminBundle:User:delete" }
+    methods:  [DELETE]

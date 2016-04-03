@@ -17,3 +17,7 @@ xdaysaysay_admin_server:
 xdaysaysay_admin_team:
     resource: "@XdaysaysayAdminBundle/Resources/config/admin/team.yml"
     prefix:   /team
+
+xdaysaysay_admin_user:
+    resource: "@XdaysaysayAdminBundle/Resources/config/admin/user.yml"
+    prefix:   /user

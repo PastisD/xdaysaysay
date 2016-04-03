@@ -38,6 +38,7 @@ class SidebarNavigationListener
             $ircServer = new MenuItemModel('irc_server_index', $this->translator->trans('admin.irc_server.menu_title', [], 'admin'), 'xdaysaysay_admin_irc_server_index', [], 'iconclasses fa fa-plane'),
             $server = new MenuItemModel('server_index', $this->translator->trans('admin.server.menu_title', [], 'admin'), 'xdaysaysay_admin_server_index', [], 'iconclasses fa fa-server'),
             $team = new MenuItemModel('team_index', $this->translator->trans('admin.team.menu_title', [], 'admin'), 'xdaysaysay_admin_team_index', [], 'iconclasses fa fa-plane'),
+            $user = new MenuItemModel('user_index', $this->translator->trans('admin.user.menu_title', [], 'admin'), 'xdaysaysay_admin_user_index', [], 'iconclasses fa fa-plane'),
         ];
 
         return $this->activateByRoute($request->get('_route'), $menuItems);

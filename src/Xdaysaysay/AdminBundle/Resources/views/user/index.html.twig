@@ -1,0 +1,44 @@
+{% extends "XdaysaysayAdminBundle:User:main.html.twig" %}
+
+{% trans_default_domain "admin" %}
+
+{% block page_subtitle %}
+    Liste des utilisateurs
+{% endblock %}
+
+{% block page_content %}
+    <div class="box">
+        <div class="box-body">
+            <div class="text-right">
+                <a class="btn btn-info" href="{{ path('xdaysaysay_admin_user_new') }}">Nouveau</a>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-body">
+            <table class="table table-bordered table-hover dataTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th class="no-sort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            <a href="{{ path('xdaysaysay_admin_user_edit', {id: user.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_user_delete_confirm', {id: user.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

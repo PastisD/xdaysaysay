@@ -66,4 +66,16 @@ admin:
             edit: La team a bien été modifiée
             create: La team a bien été créée
             delete: La team a bien été supprimée
+    user:
+        menu_title: Utilisateur
+        form:
+            label:
+                username: Nom d'utilisateur
+                email: Email
+                password: Mot de passe
+                password_repeat: Répéter mot de passe
+        flash:
+            edit: L'utilisateur a bien été modifié
+            create: L'utilisateur a bien été créé
+            delete: L'utilisateur a bien été supprimé
 

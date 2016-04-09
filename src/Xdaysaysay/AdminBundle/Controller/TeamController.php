@@ -13,10 +13,16 @@ class TeamController extends Controller
 {
     use FormTrait;
 
-    public $entityClassName = 'Xdaysaysay\CoreBundle\Entity\Team';
-    public $repositoryName = 'XdaysaysayCoreBundle:Team';
-    public $twigFormDirectory = 'XdaysaysayAdminBundle:Team';
-    public $formRoute = 'team';
-    public $translation = 'team';
-    public $formType = 'Xdaysaysay\AdminBundle\Form\Type\TeamType';
+    /**
+     * TeamController constructor.
+     */
+    public function __construct()
+    {
+        $this->entityClassName = 'Xdaysaysay\CoreBundle\Entity\Team';
+        $this->repositoryName = 'XdaysaysayCoreBundle:Team';
+        $this->twigFormDirectory = 'XdaysaysayAdminBundle:Team';
+        $this->formRoute = 'team';
+        $this->translation = 'team';
+        $this->formType = 'Xdaysaysay\AdminBundle\Form\Type\TeamType';
+    }
 }

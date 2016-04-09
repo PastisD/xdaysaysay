@@ -19,12 +19,18 @@ class UserController extends Controller
 {
     use FormTrait;
 
-    public $entityClassName = 'Xdaysaysay\UserBundle\Entity\User';
-    public $repositoryName = 'XdaysaysayUserBundle:User';
-    public $twigFormDirectory = 'XdaysaysayAdminBundle:User';
-    public $formRoute = 'user';
-    public $translation = 'user';
-    public $formType = 'Xdaysaysay\AdminBundle\Form\Type\UserType';
+    /**
+     * UserController constructor.
+     */
+    public function __construct()
+    {
+        $this->entityClassName = 'Xdaysaysay\UserBundle\Entity\User';
+        $this->repositoryName = 'XdaysaysayUserBundle:User';
+        $this->twigFormDirectory = 'XdaysaysayAdminBundle:User';
+        $this->formRoute = 'user';
+        $this->translation = 'user';
+        $this->formType = 'Xdaysaysay\AdminBundle\Form\Type\UserType';
+    }
 
     /**
      * Displays a form to edit an existing User entity.

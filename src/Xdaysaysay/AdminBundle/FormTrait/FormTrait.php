@@ -11,6 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
  */
 trait FormTrait
 {
+    private $entityClassName;
+    private $repositoryName;
+    private $twigFormDirectory;
+    private $formRoute;
+    private $translation;
+    private $formType;
+
     /**
      * Displays list of existing entities.
      *

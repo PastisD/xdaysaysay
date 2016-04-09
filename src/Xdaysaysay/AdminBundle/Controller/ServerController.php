@@ -13,10 +13,16 @@ class ServerController extends Controller
 {
     use FormTrait;
 
-    public $entityClassName = 'Xdaysaysay\CoreBundle\Entity\Server';
-    public $repositoryName = 'XdaysaysayCoreBundle:Server';
-    public $twigFormDirectory = 'XdaysaysayAdminBundle:Server';
-    public $formRoute = 'server';
-    public $translation = 'server';
-    public $formType = 'Xdaysaysay\AdminBundle\Form\Type\ServerType';
+    /**
+     * ServerController constructor.
+     */
+    public function __construct()
+    {
+        $this->entityClassName = 'Xdaysaysay\CoreBundle\Entity\Server';
+        $this->repositoryName = 'XdaysaysayCoreBundle:Server';
+        $this->twigFormDirectory = 'XdaysaysayAdminBundle:Server';
+        $this->formRoute = 'server';
+        $this->translation = 'server';
+        $this->formType = 'Xdaysaysay\AdminBundle\Form\Type\ServerType';
+    }
 }

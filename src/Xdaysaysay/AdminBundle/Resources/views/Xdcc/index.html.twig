@@ -29,24 +29,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for xdcc in xdccs %}
+                {% for entity in entities %}
                     <tr>
-                        <td>{{ xdcc.id }}</td>
-                        <td>{{ xdcc.teams|join('<br />')|raw }}</td>
-                        <td>{{ xdcc.server }}</td>
-                        <td>{{ xdcc.xdccnames|join('<br />')|raw }}</td>
-                        <td>{{ xdcc.packs.count }}</td>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.teams|join('<br />')|raw }}</td>
+                        <td>{{ entity.server }}</td>
+                        <td>{{ entity.xdccnames|join('<br />')|raw }}</td>
+                        <td>{{ entity.packs.count }}</td>
 
                         <td>
-                            {% if xdcc.visible %}
+                            {% if entity.visible %}
                                 <span class="badge bg-green">Oui</span>
                             {% else %}
                                 <span class="badge bg-red">Non</span>
                             {% endif %}
                         </td>
                         <td>
-                            <a href="{{ path('xdaysaysay_admin_xdcc_edit', {id: xdcc.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
-                            <a href="{{ path('xdaysaysay_admin_xdcc_delete_confirm', {id: xdcc.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_xdcc_edit', {id: entity.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_xdcc_delete_confirm', {id: entity.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
                         </td>
                     </tr>
                 {% endfor %}

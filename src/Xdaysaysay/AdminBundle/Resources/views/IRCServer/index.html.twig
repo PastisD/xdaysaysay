@@ -29,21 +29,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for irc_server in irc_servers %}
+                {% for entity in entities %}
                     <tr>
-                        <td>{{ irc_server.id }}</td>
-                        <td>{{ irc_server.name }}</td>
-                        <td>{{ irc_server.host }}</td>
-                        <td>{{ irc_server.port }}</td>
-                        <td>{{ irc_server.portSsl }}</td>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.name }}</td>
+                        <td>{{ entity.host }}</td>
+                        <td>{{ entity.port }}</td>
+                        <td>{{ entity.portSsl }}</td>
                         <td>
-                            {% if irc_server.portSsl %}
-                                <a href="{{ irc_server.portSsl }}" target="_blank">{{ irc_server.portSsl }}</a>
+                            {% if entity.portSsl %}
+                                <a href="{{ entity.portSsl }}" target="_blank">{{ entity.portSsl }}</a>
                             {% endif %}
                         </td>
                         <td>
-                            <a href="{{ path('xdaysaysay_admin_irc_server_edit', {id: irc_server.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
-                            <a href="{{ path('xdaysaysay_admin_irc_server_delete_confirm', {id: irc_server.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_irc_server_edit', {id: entity.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_irc_server_delete_confirm', {id: entity.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
                         </td>
                     </tr>
                 {% endfor %}

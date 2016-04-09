@@ -26,14 +26,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for user in users %}
+                {% for entity in entities %}
                     <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.email }}</td>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.username }}</td>
+                        <td>{{ entity.email }}</td>
                         <td>
-                            <a href="{{ path('xdaysaysay_admin_user_edit', {id: user.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
-                            <a href="{{ path('xdaysaysay_admin_user_delete_confirm', {id: user.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_user_edit', {id: entity.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_user_delete_confirm', {id: entity.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
                         </td>
                     </tr>
                 {% endfor %}

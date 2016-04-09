@@ -8,30 +8,19 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Xdaysaysay\AdminBundle\Form\Type\UserType;
+use Xdaysaysay\AdminBundle\FormTrait\FormTrait;
 use Xdaysaysay\UserBundle\Entity\User;
 
 class UserController extends Controller
 {
-    /**
-     * Displays list of existing User entities.
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \LogicException
-     * @throws \UnexpectedValueException
-     */
-    public function indexAction()
-    {
-        $this->get('avanzu_admin_theme.theme_manager')->registerScript('datatble', 'bundles/xdaysaysayadmin/js/datatable.js');
+    use FormTrait;
 
-        $users = $this->getDoctrine()->getRepository('XdaysaysayUserBundle:User')->findBy([], ['id' => 'DESC']);
-
-        return $this->render(
-            'XdaysaysayAdminBundle:User:index.html.twig', [
-                'users' => $users,
-            ]
-        );
-    }
+    public $entityClassName = 'Xdaysaysay\UserBundle\Entity\User';
+    public $repositoryName = 'XdaysaysayUserBundle:User';
+    public $twigFormDirectory = 'XdaysaysayAdminBundle:User';
+    public $formRoute = 'user';
+    public $translation = 'user';
+    public $formType = 'Xdaysaysay\AdminBundle\Form\Type\UserType';
 
     /**
      * Displays a form to edit an existing User entity.
@@ -178,87 +167,6 @@ class UserController extends Controller
                 ],
             ]
         );
-
-        return $form;
-    }
-
-    /**
-     * @param $id
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function deleteConfirmAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('XdaysaysayUserBundle:User')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find User entity.');
-        }
-
-        return $this->render(
-            '@XdaysaysayAdmin/User/confirm_delete.html.twig', [
-                'entity' => $entity,
-                'form'   => $this->createDeleteForm($entity)->createView(),
-            ]
-        );
-    }
-
-    /**
-     * @param Request $request
-     * @param $id
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     *
-     * @throws \LogicException
-     * @throws \InvalidArgumentException
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('XdaysaysayUserBundle:User')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find User entity.');
-        }
-
-        $form = $this->createDeleteForm($entity);
-
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            $em->remove($entity);
-            $em->flush();
-
-            $this->addFlash('success', $this->get('translator')->trans('admin.user.flash.delete', [], 'admin'));
-
-            return $this->redirectToRoute('xdaysaysay_admin_user_index');
-        } else {
-            return $this->redirectToRoute('xdaysaysay_admin_user_delete_confirm', ['id' => $id]);
-        }
-    }
-
-    /**
-     * @param User $entity
-     *
-     * @return \Symfony\Component\Form\Form
-     *
-     * @throws \InvalidArgumentException
-     */
-    private function createDeleteForm(User $entity)
-    {
-        $form = $this->createFormBuilder()
-            ->setAction($this->generateUrl('xdaysaysay_admin_user_delete', ['id' => $entity->getId()]))
-            ->setMethod('DELETE')
-            ->add('submit', SubmitType::class, [
-                'label' => $this->get('translator')->trans('admin.common.action.delete', [], 'admin'),
-                'attr'  => [
-                    'class' => 'btn btn-danger',
-                ],
-            ])
-            ->getForm();
 
         return $form;
     }

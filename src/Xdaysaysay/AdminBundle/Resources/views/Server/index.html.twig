@@ -27,21 +27,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for server in servers %}
+                {% for entity in entities %}
                     <tr>
-                        <td>{{ server.id }}</td>
-                        <td>{{ server.name }}</td>
-                        <td>{{ server.host }}</td>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.name }}</td>
+                        <td>{{ entity.host }}</td>
                         <td>
-                            {% if server.ssl %}
+                            {% if entity.ssl %}
                                 <span class="badge bg-green">Oui</span>
                             {% else %}
                                 <span class="badge bg-red">Non</span>
                             {% endif %}
                         </td>
                         <td>
-                            <a href="{{ path('xdaysaysay_admin_server_edit', {id: server.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
-                            <a href="{{ path('xdaysaysay_admin_server_delete_confirm', {id: server.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_server_edit', {id: entity.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
+                            <a href="{{ path('xdaysaysay_admin_server_delete_confirm', {id: entity.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
                         </td>
                     </tr>
                 {% endfor %}

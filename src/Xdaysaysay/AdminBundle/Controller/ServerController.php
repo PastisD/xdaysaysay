@@ -3,11 +3,7 @@
 namespace Xdaysaysay\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\HttpFoundation\Request;
-use Xdaysaysay\AdminBundle\Form\Type\ServerType;
 use Xdaysaysay\AdminBundle\FormTrait\FormTrait;
-use Xdaysaysay\CoreBundle\Entity\Server;
 
 class ServerController extends Controller
 {

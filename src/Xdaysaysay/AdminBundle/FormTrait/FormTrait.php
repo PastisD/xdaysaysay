@@ -22,7 +22,7 @@ trait FormTrait
         $entities = $this->getDoctrine()->getRepository($this->entityClassName)->findBy([], ['id' => 'DESC']);
 
         return $this->render(
-            $this->twigFormDirectory . ':index.html.twig', [
+            $this->twigFormDirectory.':index.html.twig', [
                 'entities' => $entities,
             ]
         );
@@ -62,13 +62,13 @@ trait FormTrait
             $em->persist($entity);
             $em->flush();
 
-            $this->addFlash('success', $this->get('translator')->trans('admin.' . $this->translation . '.flash.edit', [], 'admin'));
+            $this->addFlash('success', $this->get('translator')->trans('admin.'.$this->translation.'.flash.edit', [], 'admin'));
 
-            return $this->redirect($this->generateUrl('xdaysaysay_admin_' . $this->formRoute . '_edit', ['id' => $entity->getId()]));
+            return $this->redirect($this->generateUrl('xdaysaysay_admin_'.$this->formRoute.'_edit', ['id' => $entity->getId()]));
         }
 
         return $this->render(
-            $this->twigFormDirectory . ':edit.html.twig', [
+            $this->twigFormDirectory.':edit.html.twig', [
                 'entity' => $entity,
                 'form'   => $form->createView(),
             ]
@@ -104,13 +104,13 @@ trait FormTrait
             $em->persist($entity);
             $em->flush();
 
-            $this->addFlash('success', $this->get('translator')->trans('admin.' . $this->translation . '.flash.create', [], 'admin'));
+            $this->addFlash('success', $this->get('translator')->trans('admin.'.$this->translation.'.flash.create', [], 'admin'));
 
-            return $this->redirect($this->generateUrl('xdaysaysay_admin_' . $this->formRoute . '_edit', ['id' => $entity->getId()]));
+            return $this->redirect($this->generateUrl('xdaysaysay_admin_'.$this->formRoute.'_edit', ['id' => $entity->getId()]));
         }
 
         return $this->render(
-            $this->twigFormDirectory . ':new.html.twig', [
+            $this->twigFormDirectory.':new.html.twig', [
                 'entity' => $entity,
                 'form'   => $form->createView(),
             ]
@@ -132,12 +132,12 @@ trait FormTrait
      */
     private function createNewEditForm($entity)
     {
+        $action = $this->generateUrl('xdaysaysay_admin_'.$this->formRoute.'_new');
+        $submitText = $this->get('translator')->trans('admin.common.form.create', [], 'admin');
+
         if ($entity->getId() !== null) {
-            $action = $this->generateUrl('xdaysaysay_admin_' . $this->formRoute . '_edit', ['id' => $entity->getId()]);
+            $action = $this->generateUrl('xdaysaysay_admin_'.$this->formRoute.'_edit', ['id' => $entity->getId()]);
             $submitText = $this->get('translator')->trans('admin.common.form.update', [], 'admin');
-        } else {
-            $action = $this->generateUrl('xdaysaysay_admin_' . $this->formRoute . '_new');
-            $submitText = $this->get('translator')->trans('admin.common.form.create', [], 'admin');
         }
 
         $form = $this->createForm(
@@ -176,7 +176,7 @@ trait FormTrait
         }
 
         return $this->render(
-            $this->twigFormDirectory . ':confirm_delete.html.twig', [
+            $this->twigFormDirectory.':confirm_delete.html.twig', [
                 'entity' => $entity,
                 'form'   => $this->createDeleteForm($entity)->createView(),
             ]
@@ -211,11 +211,11 @@ trait FormTrait
             $em->remove($entity);
             $em->flush();
 
-            $this->addFlash('success', $this->get('translator')->trans('admin.' . $this->translation . '.flash.delete', [], 'admin'));
+            $this->addFlash('success', $this->get('translator')->trans('admin.'.$this->translation.'.flash.delete', [], 'admin'));
 
-            return $this->redirectToRoute('xdaysaysay_admin_' . $this->formRoute . '_index');
+            return $this->redirectToRoute('xdaysaysay_admin_'.$this->formRoute.'_index');
         } else {
-            return $this->redirectToRoute('xdaysaysay_admin_' . $this->formRoute . '_delete_confirm', ['id' => $id]);
+            return $this->redirectToRoute('xdaysaysay_admin_'.$this->formRoute.'_delete_confirm', ['id' => $id]);
         }
     }
 
@@ -229,7 +229,7 @@ trait FormTrait
     private function createDeleteForm($entity)
     {
         $form = $this->createFormBuilder()
-            ->setAction($this->generateUrl('xdaysaysay_admin_' . $this->formRoute . '_delete', ['id' => $entity->getId()]))
+            ->setAction($this->generateUrl('xdaysaysay_admin_'.$this->formRoute.'_delete', ['id' => $entity->getId()]))
             ->setMethod('DELETE')
             ->add('submit', SubmitType::class, [
                 'label' => $this->get('translator')->trans('admin.common.action.delete', [], 'admin'),

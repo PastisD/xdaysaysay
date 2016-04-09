@@ -147,12 +147,12 @@ class UserController extends Controller
      */
     private function createNewEditForm(UserInterface $entity, $newUser = false)
     {
+        $action = $this->generateUrl('xdaysaysay_admin_user_new');
+        $submitText = $this->get('translator')->trans('admin.common.form.create', [], 'admin');
+
         if ($entity->getId() !== null) {
             $action = $this->generateUrl('xdaysaysay_admin_user_edit', ['id' => $entity->getId()]);
             $submitText = $this->get('translator')->trans('admin.common.form.update', [], 'admin');
-        } else {
-            $action = $this->generateUrl('xdaysaysay_admin_user_new');
-            $submitText = $this->get('translator')->trans('admin.common.form.create', [], 'admin');
         }
 
         $form = $this->createForm(

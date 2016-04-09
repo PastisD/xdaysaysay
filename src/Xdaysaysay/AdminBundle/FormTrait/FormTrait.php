@@ -217,9 +217,9 @@ trait FormTrait
             $this->addFlash('success', $this->get('translator')->trans('admin.'.$this->translation.'.flash.delete', [], 'admin'));
 
             return $this->redirectToRoute('xdaysaysay_admin_'.$this->formRoute.'_index');
-        } else {
-            return $this->redirectToRoute('xdaysaysay_admin_'.$this->formRoute.'_delete_confirm', ['id' => $id]);
         }
+
+        return $this->redirectToRoute('xdaysaysay_admin_'.$this->formRoute.'_delete_confirm', ['id' => $id]);
     }
 
     /**

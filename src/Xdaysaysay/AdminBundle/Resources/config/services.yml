@@ -15,7 +15,6 @@ services:
     xdaysaysay_admin.sidebar_user_listener:
         class: "%xdaysaysay_admin.sidebar_user_listener.class%"
         arguments:
-            - "@translator"
             - "@security.token_storage"
         tags:
             - { name: kernel.event_listener, event:theme.sidebar_user, method:onShowUser }

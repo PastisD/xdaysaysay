@@ -5,7 +5,6 @@ namespace Xdaysaysay\AdminBundle\EventListener;
 
 use Avanzu\AdminThemeBundle\Event\ShowUserEvent;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 
 class NavbarUserListener
 {

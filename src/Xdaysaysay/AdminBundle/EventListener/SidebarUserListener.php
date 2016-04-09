@@ -9,19 +9,14 @@ use Symfony\Component\Translation\TranslatorInterface;
 
 class SidebarUserListener
 {
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
 
     /**
      * @var TokenStorageInterface
      */
     private $tokenStorage;
 
-    public function __construct(TranslatorInterface $translator, TokenStorageInterface $tokenStorage)
+    public function __construct(TokenStorageInterface $tokenStorage)
     {
-        $this->translator = $translator;
         $this->tokenStorage = $tokenStorage;
     }
 

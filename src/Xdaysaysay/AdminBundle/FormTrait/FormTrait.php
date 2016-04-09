@@ -5,6 +5,10 @@ namespace Xdaysaysay\AdminBundle\FormTrait;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class FormTrait
+ * @package Xdaysaysay\AdminBundle\FormTrait
+ */
 trait FormTrait
 {
     /**
@@ -27,7 +31,6 @@ trait FormTrait
             ]
         );
     }
-
 
     /**
      * Displays a form to edit an existing entity.
@@ -75,7 +78,6 @@ trait FormTrait
         );
     }
 
-
     /**
      * Displays a form to edit an existing entity.
      *
@@ -116,7 +118,6 @@ trait FormTrait
             ]
         );
     }
-
 
     /**
      * Creates a form to create a entity.
@@ -159,11 +160,14 @@ trait FormTrait
         return $form;
     }
 
-
     /**
      * @param $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function deleteConfirmAction($id)
     {
@@ -182,7 +186,6 @@ trait FormTrait
             ]
         );
     }
-
 
     /**
      * @param Request $request

@@ -8,6 +8,10 @@ use Symfony\Component\OptionsResolver\Exception\AccessException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * Class TeamType
+ * @package Xdaysaysay\AdminBundle\Form\Type
+ */
 class TeamType extends AbstractType
 {
     /**

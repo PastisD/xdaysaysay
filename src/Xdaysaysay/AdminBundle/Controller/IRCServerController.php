@@ -5,6 +5,10 @@ namespace Xdaysaysay\AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Xdaysaysay\AdminBundle\FormTrait\FormTrait;
 
+/**
+ * Class IRCServerController
+ * @package Xdaysaysay\AdminBundle\Controller
+ */
 class IRCServerController extends Controller
 {
     use FormTrait;

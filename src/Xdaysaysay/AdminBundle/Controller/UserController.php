@@ -11,6 +11,10 @@ use Xdaysaysay\AdminBundle\Form\Type\UserType;
 use Xdaysaysay\AdminBundle\FormTrait\FormTrait;
 use Xdaysaysay\UserBundle\Entity\User;
 
+/**
+ * Class UserController
+ * @package Xdaysaysay\AdminBundle\Controller
+ */
 class UserController extends Controller
 {
     use FormTrait;

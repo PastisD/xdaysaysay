@@ -5,6 +5,10 @@ namespace Xdaysaysay\AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Xdaysaysay\AdminBundle\FormTrait\FormTrait;
 
+/**
+ * Class XdccController
+ * @package Xdaysaysay\AdminBundle\Controller
+ */
 class XdccController extends Controller
 {
     use FormTrait;

@@ -73,7 +73,7 @@ class BreadcrumbListener
     protected function activateByRoute($route, $items)
     {
         foreach ($items as $item) {
-            if (in_array($item->getRoute(), ['xdaysaysay_admin_irc_server_edit', 'xdaysaysay_admin_server_edit', 'xdaysaysay_admin_team_edit', 'xdaysaysay_admin_user_edit'], true)) {
+            if (in_array($item->getRoute(), ['xdaysaysay_admin_irc_server_edit', 'xdaysaysay_admin_server_edit', 'xdaysaysay_admin_team_edit', 'xdaysaysay_admin_user_edit', 'xdaysaysay_admin_xdcc_edit'], true)) {
                 $item->setRouteArgs(['id' => $this->request->get('id')]);
             }
             if ($item->hasChildren()) {

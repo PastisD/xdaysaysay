@@ -1,6 +1,7 @@
 {
-    "name": "ewan/xdaysaysay",
-    "license": "proprietary",
+    "name": "pastisd/xdaysaysay",
+    "description": "Manage xdcc (Iroffer) and show list of packs",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {

@@ -19,6 +19,10 @@ admin:
         signout: Se déconnecter
         profile: Profil
     xdcc:
+        breadcrumb:
+            main: Xdcc
+            new: Création d'un xdcc
+            edit: Edition d'un xdcc
         menu_title: Xdcc
         form:
             label:
@@ -31,6 +35,10 @@ admin:
             create: Le xdcc a bien été créé
             delete: Le xdcc a bien été supprimé
     irc_server:
+        breadcrumb:
+            main: Serveur IRC
+            new: Création d'un serveur IRC
+            edit: Edition d'un serveur IRC
         menu_title: Serveur IRC
         form:
             label:
@@ -44,6 +52,10 @@ admin:
             create: Le serveur IRC a bien été créé
             delete: Le serveur IRC a bien été supprimé
     server:
+        breadcrumb:
+            main: Serveur
+            new: Création d'un serveur
+            edit: Edition d'un serveur
         menu_title: Serveur
         form:
             label:
@@ -56,6 +68,10 @@ admin:
             create: Le serveur a bien été créé
             delete: Le serveur a bien été supprimé
     team:
+        breadcrumb:
+            main: Team
+            new: Création d'une team
+            edit: Edition d'une team
         menu_title: Team
         form:
             label:
@@ -67,6 +83,10 @@ admin:
             create: La team a bien été créée
             delete: La team a bien été supprimée
     user:
+        breadcrumb:
+            main: Utilisateur
+            new: Création d'un utilisateur
+            edit: Edition d'un utilisateur
         menu_title: Utilisateur
         form:
             label:

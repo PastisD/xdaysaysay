@@ -2,7 +2,7 @@ parameters:
     xdaysaysay_admin.sidebar_navigation_listener.class: Xdaysaysay\AdminBundle\EventListener\SidebarNavigationListener
     xdaysaysay_admin.sidebar_user_listener.class: Xdaysaysay\AdminBundle\EventListener\SidebarUserListener
     xdaysaysay_admin.navebar_user_listener.class: Xdaysaysay\AdminBundle\EventListener\NavbarUserListener
-    xdaysaysay_admin.breadcrumb_listener.class: Xdaysaysay\AdminBundle\EventListener\SidebarNavigationListener
+    xdaysaysay_admin.breadcrumb_listener.class: Xdaysaysay\AdminBundle\EventListener\BreadcrumbListener
 
 services:
     xdaysaysay_admin.sidebar_navigation_listener:
@@ -31,7 +31,8 @@ services:
         class: "%xdaysaysay_admin.breadcrumb_listener.class%"
         arguments:
             - "@translator"
-            - "@security.token_storage"
+            - "@request_stack"
+            - "@router"
         tags:
             - { name: kernel.event_listener, event:theme.breadcrumb, method:onSetupMenu }
 

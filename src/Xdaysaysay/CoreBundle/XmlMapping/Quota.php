@@ -16,7 +16,7 @@ class Quota implements XmlDeserializable
     public $transferedtotal;
     public $transferedtotalbytes;
 
-    static function xmlDeserialize(Reader $reader)
+    static public function xmlDeserialize(Reader $reader)
     {
         $idlequeue = new self();
 

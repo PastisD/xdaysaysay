@@ -11,7 +11,7 @@ class Slots implements XmlDeserializable
     public $slotsfree;
     public $slotsmax;
 
-    static function xmlDeserialize(Reader $reader)
+    static public function xmlDeserialize(Reader $reader)
     {
         $slot = new self();
 

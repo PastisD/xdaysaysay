@@ -12,7 +12,7 @@ class Sysinfo implements XmlDeserializable
      * @var Slots
      */
     public $slots;
-    
+
     /**
      * @var Mainqueue
      */
@@ -48,7 +48,7 @@ class Sysinfo implements XmlDeserializable
      */
     public $stats;
 
-    static function xmlDeserialize(Reader $reader)
+    static public function xmlDeserialize(Reader $reader)
     {
         $sysinfo = new self();
 

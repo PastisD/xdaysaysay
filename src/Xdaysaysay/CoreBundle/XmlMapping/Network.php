@@ -15,7 +15,7 @@ class Network implements XmlDeserializable
     public $currentservername;
     public $channel;
 
-    static function xmlDeserialize(Reader $reader)
+    static public function xmlDeserialize(Reader $reader)
     {
         $network = new self();
 

@@ -11,7 +11,7 @@ class Limits implements XmlDeserializable
     public $minspeed;
     public $maxspeed;
 
-    static function xmlDeserialize(Reader $reader)
+    static public function xmlDeserialize(Reader $reader)
     {
         $idlequeue = new self();
 

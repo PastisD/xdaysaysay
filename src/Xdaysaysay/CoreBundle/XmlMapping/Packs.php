@@ -12,7 +12,7 @@ class Packs implements XmlDeserializable
      */
     public $packs = [];
 
-    static function xmlDeserialize(Reader $reader)
+    static public function xmlDeserialize(Reader $reader)
     {
         $packs = new self();
 

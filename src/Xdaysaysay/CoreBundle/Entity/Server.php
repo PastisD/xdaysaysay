@@ -54,6 +54,11 @@ class Server
         return $this->getName() . '(' . $this->getHost() . ')';
     }
 
+    public function getFullUri()
+    {
+        return ( $this->getSsl() ? 'https://' : 'http://' ) . $this->getHost() . ':' . $this->getHttpPort();
+    }
+
     /**
      * Constructor
      */

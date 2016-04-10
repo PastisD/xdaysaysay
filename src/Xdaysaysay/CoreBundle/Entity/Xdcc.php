@@ -31,22 +31,22 @@ class Xdcc
     protected $server;
 
     /**
-     * @ORM\OneToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\Pack", mappedBy="xdcc")
-     * @ORM\JoinColumn(name="id_team", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\Pack", mappedBy="xdcc", cascade={"all"}, orphanRemoval=true)
+     * @ORM\JoinColumn(name="id_xdcc", referencedColumnName="id")
      */
     protected $packs;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\Team", inversedBy="xdccs", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\Team", inversedBy="xdccs")
      * @ORM\JoinTable(name="team_xdcc",
      *      joinColumns={@ORM\JoinColumn(name="id_xdcc", referencedColumnName="id", nullable=false)},
      *      inverseJoinColumns={@ORM\JoinColumn(name="id_team", referencedColumnName="id", nullable=false)}
-     *      )*
+     *      )
      **/
     protected $teams;
 
     /**
-     * @ORM\OneToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\XdccName", mappedBy="xdcc")
+     * @ORM\OneToMany(targetEntity="Xdaysaysay\CoreBundle\Entity\XdccName", mappedBy="xdcc", cascade={"all"}, orphanRemoval=true)
      */
     protected $xdccnames;
 

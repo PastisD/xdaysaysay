@@ -134,6 +134,7 @@ class ImportPacksCommand extends ContainerAwareCommand
                 $xdccName->setXdcc($xdcc);
                 $xdccName->setName($network->currentnick);
                 $xdccName->setIrcServer($ircServer);
+                $xdcc->addXdccname($xdccName);
             }
         }
 

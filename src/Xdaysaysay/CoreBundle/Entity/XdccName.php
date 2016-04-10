@@ -19,6 +19,7 @@ class XdccName
 
 
     /**
+     * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Xdaysaysay\CoreBundle\Entity\IRCServer", inversedBy="xdccnames")
      * @ORM\JoinColumn(name="id_ircserver", referencedColumnName="id")
      */

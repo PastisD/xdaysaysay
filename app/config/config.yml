@@ -38,6 +38,10 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+assetic:
+    filters:
+        cssrewrite: ~
+
 # Doctrine Configuration
 doctrine:
     dbal:

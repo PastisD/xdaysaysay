@@ -48,7 +48,7 @@ class Sysinfo implements XmlDeserializable
      */
     public $stats;
 
-    static public function xmlDeserialize(Reader $reader)
+    public static function xmlDeserialize(Reader $reader)
     {
         $sysinfo = new self();
 

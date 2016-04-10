@@ -18,7 +18,7 @@ class Iroffer implements XmlDeserializable
      */
     public $sysinfo;
 
-    static public function xmlDeserialize(Reader $reader)
+    public static function xmlDeserialize(Reader $reader)
     {
         $iroffer = new self();
 

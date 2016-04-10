@@ -11,7 +11,7 @@ class Idlequeue implements XmlDeserializable
     public $queueuse;
     public $queuemax;
 
-    static public function xmlDeserialize(Reader $reader)
+    public static function xmlDeserialize(Reader $reader)
     {
         $idlequeue = new self();
 

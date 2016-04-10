@@ -11,7 +11,7 @@ class Bandwidth implements XmlDeserializable
     public $banduse;
     public $bandmax;
 
-    static public function xmlDeserialize(Reader $reader)
+    public static function xmlDeserialize(Reader $reader)
     {
         $idlequeue = new self();
 

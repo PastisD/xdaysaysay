@@ -13,7 +13,7 @@ class Stats implements XmlDeserializable
     public $totaluptime;
     public $lastupdate;
 
-    static public function xmlDeserialize(Reader $reader)
+    public static function xmlDeserialize(Reader $reader)
     {
         $idlequeue = new self();
 

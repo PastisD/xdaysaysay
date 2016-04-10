@@ -11,7 +11,7 @@ class Mainqueue implements XmlDeserializable
     public $queueuse;
     public $queuemax;
 
-    static public function xmlDeserialize(Reader $reader)
+    public static function xmlDeserialize(Reader $reader)
     {
         $mainqueue = new self();
 

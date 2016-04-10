@@ -17,7 +17,7 @@ class Pack implements XmlDeserializable
     public $md5sum;
     public $crc32;
 
-    static public function xmlDeserialize(Reader $reader)
+    public static function xmlDeserialize(Reader $reader)
     {
         $pack = new self();
 

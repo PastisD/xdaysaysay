@@ -46,6 +46,26 @@ class Team
     protected $chan_name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $chan_name_password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $chan_name_staff;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $chan_name_staff_password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $bot_name;
+
+    /**
      * @ORM\Column(type="string", nullable=true, length=255)
      */
     protected $website;
@@ -224,5 +244,85 @@ class Team
     public function getXdccs()
     {
         return $this->xdccs;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBotName()
+    {
+        return $this->bot_name;
+    }
+
+    /**
+     * @param string $bot_name
+     *
+     * @return Team
+     */
+    public function setBotName($bot_name)
+    {
+        $this->bot_name = $bot_name;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChanNameStaff()
+    {
+        return $this->chan_name_staff;
+    }
+
+    /**
+     * @param string $chan_name_staff
+     *
+     * @return Team
+     */
+    public function setChanNameStaff($chan_name_staff)
+    {
+        $this->chan_name_staff = $chan_name_staff;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChanNameStaffPassword()
+    {
+        return $this->chan_name_staff_password;
+    }
+
+    /**
+     * @param string $chan_name_staff_password
+     *
+     * @return Team
+     */
+    public function setChanNameStaffPassword($chan_name_staff_password)
+    {
+        $this->chan_name_staff_password = $chan_name_staff_password;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getChanNamePassword()
+    {
+        return $this->chan_name_password;
+    }
+
+    /**
+     * @param string $chan_name_password
+     *
+     * @return Team
+     */
+    public function setChanNamePassword($chan_name_password)
+    {
+        $this->chan_name_password = $chan_name_password;
+
+        return $this;
     }
 }

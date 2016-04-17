@@ -37,6 +37,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_theme:
+        -  'XdaysaysayAdminBundle:layout:form-theme.html.twig'
 
 assetic:
     filters:

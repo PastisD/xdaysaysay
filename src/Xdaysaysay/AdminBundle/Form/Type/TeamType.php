@@ -4,9 +4,9 @@ namespace Xdaysaysay\AdminBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\Exception\AccessException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
+use Xdaysaysay\CoreBundle\Form\Type\XdaysaysayTextType;
 
 /**
  * Class TeamType
@@ -37,6 +37,35 @@ class TeamType extends AbstractType
             'label'       => 'admin.team.form.label.chan_name',
             'constraints' => [
                 new Assert\NotBlank(),
+                new Assert\Regex([
+                    'pattern' => '/^#(.*)/',
+                    'message' => 'must_start_with_hashtag'
+                ]),
+            ],
+        ]);
+        $builder->add('chan_name_password', null, [
+            'label' => 'admin.team.form.label.chan_name_password',
+            'required' => false,
+        ]);
+        $builder->add('chan_name_staff', null, [
+            'label' => 'admin.team.form.label.chan_name_staff',
+            'required' => false,
+            'constraints' => [
+                new Assert\Regex([
+                    'pattern' => '/^#(.*)/',
+                    'message' => 'must_start_with_hashtag'
+                ]),
+            ],
+        ]);
+        $builder->add('chan_name_staff_password', null, [
+            'label' => 'admin.team.form.label.chan_name_staff_password',
+            'required' => false,
+        ]);
+        $builder->add('bot_name', null, [
+            'label' => 'admin.team.form.label.bot_name',
+            'required' => false,
+            'label_attr' => [
+                'help' => 'admin.team.form.label.bot_name_help'
             ],
         ]);
     }
@@ -44,7 +73,7 @@ class TeamType extends AbstractType
     /**
      * @param OptionsResolver $resolver
      *
-     * @throws AccessException
+     * @throws \Symfony\Component\OptionsResolver\Exception\AccessException
      */
     public function configureOptions(OptionsResolver $resolver)
     {

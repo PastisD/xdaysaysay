@@ -54,31 +54,32 @@ class Sysinfo implements XmlDeserializable
 
         // Borrowing a parser from the KeyValue class.
         $children = $reader->parseInnerTree();
-
-        foreach ($children as $child) {
-            if ($child['name'] === '{}slots') {
-                $sysinfo->slots = $child['value'];
-            }
-            if ($child['name'] === '{}mainqueue') {
-                $sysinfo->mainqueue = $child['value'];
-            }
-            if ($child['name'] === '{}idlequeue') {
-                $sysinfo->idlequeue = $child['value'];
-            }
-            if ($child['name'] === '{}bandwidth') {
-                $sysinfo->bandwidth = $child['value'];
-            }
-            if ($child['name'] === '{}quota') {
-                $sysinfo->quota = $child['value'];
-            }
-            if ($child['name'] === '{}limits') {
-                $sysinfo->limits = $child['value'];
-            }
-            if ($child['name'] === '{}network') {
-                $sysinfo->networks[] = $child['value'];
-            }
-            if ($child['name'] === '{}stats') {
-                $sysinfo->stats = $child['value'];
+        if(is_array($children)) {
+            foreach ($children as $child) {
+                if ($child['name'] === '{}slots') {
+                    $sysinfo->slots = $child['value'];
+                }
+                if ($child['name'] === '{}mainqueue') {
+                    $sysinfo->mainqueue = $child['value'];
+                }
+                if ($child['name'] === '{}idlequeue') {
+                    $sysinfo->idlequeue = $child['value'];
+                }
+                if ($child['name'] === '{}bandwidth') {
+                    $sysinfo->bandwidth = $child['value'];
+                }
+                if ($child['name'] === '{}quota') {
+                    $sysinfo->quota = $child['value'];
+                }
+                if ($child['name'] === '{}limits') {
+                    $sysinfo->limits = $child['value'];
+                }
+                if ($child['name'] === '{}network') {
+                    $sysinfo->networks[] = $child['value'];
+                }
+                if ($child['name'] === '{}stats') {
+                    $sysinfo->stats = $child['value'];
+                }
             }
         }
 

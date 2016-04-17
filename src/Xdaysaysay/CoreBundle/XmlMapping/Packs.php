@@ -17,9 +17,11 @@ class Packs implements XmlDeserializable
         $packs = new self();
 
         $children = $reader->parseInnerTree();
-        foreach ($children as $child) {
-            if ($child['value'] instanceof Pack) {
-                $packs->packs[] = $child['value'];
+        if(is_array($children)) {
+            foreach ($children as $child) {
+                if ($child['value'] instanceof Pack) {
+                    $packs->packs[] = $child['value'];
+                }
             }
         }
 

@@ -1,8 +1,6 @@
 
 # Created by https://www.gitignore.io/api/sym,symfony
 
-#!! ERROR: sym is undefined. Use list command to see defined gitignore types !!#
-
 ### Symfony ###
 # Cache and logs (Symfony2)
 /app/cache/*
@@ -49,7 +47,6 @@
 
 # Composer
 /composer.phar
-/composer.lock
 
 # PHPStorm
 /.idea

@@ -17,14 +17,15 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Xdaysaysay\UserBundle\XdaysaysayUserBundle(),
+            new Xdaysaysay\CoreBundle\XdaysaysayCoreBundle(),
+            new Xdaysaysay\AdminBundle\XdaysaysayAdminBundle(),
 
             // Vendor
             new FOS\UserBundle\FOSUserBundle(),
-            new Xdaysaysay\CoreBundle\XdaysaysayCoreBundle(),
-            new Xdaysaysay\AdminBundle\XdaysaysayAdminBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

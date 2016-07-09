@@ -224,7 +224,7 @@ class IRCServer
     /**
      * Get teams
      *
-     * @return Team[]
+     * @return ArrayCollection|Team[]
      */
     public function getTeams()
     {
@@ -257,7 +257,7 @@ class IRCServer
     /**
      * Get xdccnames
      *
-     * @return XdccName[]
+     * @return ArrayCollection|XdccName[]
      */
     public function getXdccnames()
     {

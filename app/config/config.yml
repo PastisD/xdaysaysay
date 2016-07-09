@@ -38,7 +38,8 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form_theme:
-        -  'XdaysaysayAdminBundle:layout:form-theme.html.twig'
+        - 'XdaysaysayAdminBundle:layout:form-theme.html.twig'
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 assetic:
     filters:
@@ -79,11 +80,18 @@ fos_user:
     firewall_name: main
     user_class: Xdaysaysay\UserBundle\Entity\User
 
-avanzu_admin_theme:
-    bower_bin: "%bower_bin%"
-
 stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
             blameable: true
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        team_logo:
+            uri_prefix:         /images/teams
+            upload_destination: %kernel.root_dir%/../web/images/teams
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true

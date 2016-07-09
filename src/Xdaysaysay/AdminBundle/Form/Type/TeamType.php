@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Xdaysaysay\CoreBundle\Form\Type\XdaysaysayTextType;
 
 /**
@@ -30,6 +31,9 @@ class TeamType extends AbstractType
                 new Assert\NotBlank(),
             ],
         ]);
+        $builder->add('logoFile', VichImageType::class, array(
+            'required' => false,
+        ));
         $builder->add('ircServer', null, [
             'label' => 'admin.team.form.label.ircServer',
         ]);

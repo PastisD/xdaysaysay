@@ -17,3 +17,6 @@ avanzu_admin_profile:
 
 avanzu_admin_logout:
     path: /logout
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

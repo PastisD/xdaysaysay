@@ -1,8 +1,10 @@
 xdaysaysay_admin_xdcc_index:
     path:     /
-    defaults:
-        _controller: "XdaysaysayAdminBundle:Xdcc:index"
-        search: ''
+    defaults: { _controller: "XdaysaysayAdminBundle:Xdcc:index" }
+
+xdaysaysay_admin_xdcc_datatable:
+    path:     /datatable
+    defaults: { _controller: "XdaysaysayAdminBundle:Xdcc:datatableData" }
     options:
         expose: true
 

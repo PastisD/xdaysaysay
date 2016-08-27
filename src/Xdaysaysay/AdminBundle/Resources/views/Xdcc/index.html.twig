@@ -6,6 +6,20 @@
     Liste des xdcc
 {% endblock %}
 
+{% block javascripts_inline %}
+    <script type="application/javascript">
+        admin.dataTables.columns['xdcc'] = [
+            {"name": "id", search: "text"},
+            {"name": "chan_name", search: "text"},
+            {"name": "server_name", search: "text"},
+            {"name": "bot_name", search: "text"},
+            {"name": "packs", search: "text"},
+            {"name": "visible", search: "text"},
+            {"name": "action", 'sClass': 'text-right', "orderable": false, 'display-search': false}
+        ];
+    </script>
+{% endblock %}
+
 {% block page_content %}
     <div class="box">
         <div class="box-body">
@@ -16,7 +30,7 @@
     </div>
     <div class="box">
         <div class="box-body">
-            <table class="table table-bordered table-hover dataTable">
+            <table data-name="xdcc" class="table table-bordered table-hover dataTable" data-ajax-url="{{ path('xdaysaysay_admin_xdcc_datatable') }}">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -29,27 +43,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for entity in entities %}
-                    <tr>
-                        <td>{{ entity.id }}</td>
-                        <td>{{ entity.teams|join('<br />')|raw }}</td>
-                        <td>{{ entity.server }}</td>
-                        <td>{{ entity.xdccnames|join('<br />')|raw }}</td>
-                        <td>{{ entity.packs.count }}</td>
+                {#{% for entity in entities %}#}
+                    {#<tr>#}
+                        {#<td>{{ entity.id }}</td>#}
+                        {#<td>{{ entity.teams|join('<br />')|raw }}</td>#}
+                        {#<td>{{ entity.server }}</td>#}
+                        {#<td>{{ entity.xdccnames|join('<br />')|raw }}</td>#}
+                        {#<td>{{ entity.packs.count }}</td>#}
 
-                        <td>
-                            {% if entity.visible %}
-                                <span class="badge bg-green">Oui</span>
-                            {% else %}
-                                <span class="badge bg-red">Non</span>
-                            {% endif %}
-                        </td>
-                        <td>
-                            <a href="{{ path('xdaysaysay_admin_xdcc_edit', {id: entity.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>
-                            <a href="{{ path('xdaysaysay_admin_xdcc_delete_confirm', {id: entity.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>
-                        </td>
-                    </tr>
-                {% endfor %}
+                        {#<td>#}
+                            {#{% if entity.visible %}#}
+                                {#<span class="badge bg-green">Oui</span>#}
+                            {#{% else %}#}
+                                {#<span class="badge bg-red">Non</span>#}
+                            {#{% endif %}#}
+                        {#</td>#}
+                        {#<td>#}
+                            {#<a href="{{ path('xdaysaysay_admin_xdcc_edit', {id: entity.id}) }}" class="btn btn-primary">{{ 'admin.common.action.edit'|trans }}</a>#}
+                            {#<a href="{{ path('xdaysaysay_admin_xdcc_delete_confirm', {id: entity.id}) }}" class="btn btn-danger">{{ 'admin.common.action.delete'|trans }}</a>#}
+                        {#</td>#}
+                    {#</tr>#}
+                {#{% endfor %}#}
                 </tbody>
             </table>
         </div>

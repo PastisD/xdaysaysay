@@ -8,6 +8,8 @@ admin:
             update: Mettre à jour
             create: Créer
             required_field: Champ requis
+        yes: Oui
+        no: Non
     login:
         signin: Se connecter
         resetting: Mot de passe oublié

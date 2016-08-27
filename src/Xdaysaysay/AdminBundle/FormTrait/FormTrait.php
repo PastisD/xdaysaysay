@@ -28,8 +28,6 @@ trait FormTrait
      */
     public function indexAction()
     {
-        $this->get('avanzu_admin_theme.theme_manager')->registerScript('datatble', 'bundles/xdaysaysayadmin/js/datatable.js');
-
         $entities = $this->getDoctrine()->getRepository($this->entityClassName)->findBy([], ['id' => 'DESC']);
 
         return $this->render(

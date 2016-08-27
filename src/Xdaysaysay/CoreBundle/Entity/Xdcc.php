@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * @ORM\Entity;
+ * @ORM\Entity(repositoryClass="Xdaysaysay\CoreBundle\Entity\Repository\XdccRepository");
  * @ORM\Table(name="xdcc")
  */
 class Xdcc
@@ -287,7 +287,7 @@ class Xdcc
     /**
      * Get packs
      *
-     * @return Pack[]
+     * @return ArrayCollection|Pack[]
      */
     public function getPacks()
     {
@@ -321,7 +321,7 @@ class Xdcc
     /**
      * Get teams
      *
-     * @return Team[]
+     * @return ArrayCollection|Team[]
      */
     public function getTeams()
     {

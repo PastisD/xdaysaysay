@@ -3,19 +3,21 @@
 {% block javascripts %}
     {{ parent() }}
     {% for script in admin_theme.scripts %}
-        <script type="application/javascript" src="{{ asset(script) }}" />
+        <script type="application/javascript" src="{{ asset(script) }}"></script>
     {% endfor %}
-    {% javascripts output='js/complied/select2.js'
+    {% javascripts output='js/compiled/select2.js'
         'bundles/avanzuadmintheme/vendor/adminlte/plugins/select2/select2.full.min.js'
         'bundles/avanzuadmintheme/vendor/adminlte/plugins/select2/i18n/fr.js'
     %}
     <script type="application/javascript" src="{{ asset_url }}" charset="utf-8"></script>
     {% endjavascripts %}
     {% javascripts output='js/complied/admin.js'
-        '@XdaysaysayCoreBundle/Resources/js/admin.js'
+        '@XdaysaysayAdminBundle/Resources/js/admin.js'
     %}
     <script type="application/javascript" src="{{ asset_url }}" charset="utf-8"></script>
     {% endjavascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 {% endblock %}
 
 
